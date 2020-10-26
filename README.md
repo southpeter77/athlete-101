@@ -54,4 +54,7 @@
     -will have a purchase button that will take money out from purchasing user and add that amount to the owner of plan
     -just a simple transaction.
 
-    
+### Back-End
+|Path|HTTP Verb|Meaning|
+|----|---------|-------|
+| /api/user/ |  | |
