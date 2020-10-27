@@ -57,4 +57,4 @@
 ### Back-End
 |Path|HTTP Verb|Meaning|
 |----|---------|-------|
-| /api/user/ |  | |
+| /api/user/signup | post | sign up a user |
