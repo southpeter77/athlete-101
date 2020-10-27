@@ -89,13 +89,13 @@ const SignUp = ({ needLogin, loadToken }) => {
 
     
   const updateProperty = (callback) => (e) => {
-    //   if (e.target.value === "trainer") {
-    //       console.log("traininer");
-    //       return
-    //   }
-    console.log(e.target.value)
     callback(e.target.value);
   };
+  
+  const trainerUpdate = (callback) => (e) => {
+      const current = trainer
+      callback(!current)
+      }
 
 const handleSubmit = (e) => {
     e.preventDefault()
@@ -224,7 +224,7 @@ const handleSubmit = (e) => {
    
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox name="trainer" value="true" color="primary" onChange={updateProperty(setTrainer)} />}
+                control={<Checkbox name="trainer" value="true" color="primary" onChange={trainerUpdate(setTrainer)} />}
                 label="I am a Personal Trainer *** (In order to publish your Workout Routine, you must check this box)"
                  />
                 </Grid>
