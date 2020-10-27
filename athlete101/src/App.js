@@ -1,14 +1,24 @@
 import React from 'react';
-import HomePage from "./components/HomePage"
-import Login from "./components/LogIn"
+import AppContainer from "./components/PlanBrowser"
+import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
+import SignUp from "./components/SignUp"
 
-function App() {
+const App = ()=>  {
+
+
+
   return (
     <>
-   <HomePage></HomePage>
-   <Login></Login>
-   </>
-  );
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/signup" component={SignUp}></Route>
+        <Route exact path="/" component={AppContainer}></Route>
+      </Switch>
+    </BrowserRouter>
+   
+    </>
+  )
 }
+
 
 export default App;
