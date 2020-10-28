@@ -22,7 +22,7 @@ export const editAboutMeError = (errorArray) => {
     }
 }
 
-export const setEdited = (data) => {
+export const editFormShow = (data) => {
     return {
         type:SET_EDITED,
         data
@@ -30,11 +30,15 @@ export const setEdited = (data) => {
 }
 ///////////////////////////////////////////
 
+
+
+export const showEditForm = (data) => async(dispatch) => {
+    dispatch(editFormShow(data))
+}
+
 export const editProfielAboutMeFunction = (data) => async (dispatch) => {
     const userId = window.localStorage.getItem("currentUserId");
     const token = window.localStorage.getItem(TOKEN_KEY);
-    const information = {userId, token, data}
-    console.log(information)
     try{
     const response = await fetch(`${apiUrl}/profile/aboutme`, {
         method: 'put',
@@ -47,7 +51,8 @@ export const editProfielAboutMeFunction = (data) => async (dispatch) => {
     if(response.ok) {
             const data = await response.json();
         dispatch(loadCurrentUser(data))
-        dispatch(setEdited(true))
+        dispatch(editFormShow(false))
+        showEditForm(false)
 
     }else {
         throw response;
@@ -67,7 +72,7 @@ export default function reducer (state={}, action) {
             return {...state, editAboutMeError:action.errorArray}
     
         case SET_EDITED: 
-            return {...state, edited:action.data}
+            return {...state, showEdit:action.data}
             
         default :
             return state

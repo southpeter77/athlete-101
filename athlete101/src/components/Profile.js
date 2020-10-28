@@ -13,6 +13,7 @@ import {loadCurrentUser} from "../store/actions/user"
 import { useDispatch, useSelector } from 'react-redux';
 import CardActions from '@material-ui/core/CardActions';
 import EditProfileAboutMe from "./EditProfileAboutMe"
+import {showEditForm} from "../store/actions/profile"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,12 +53,16 @@ const Profile = () => {
     const dispatch = useDispatch()
     const editedAboutMe = useSelector(state => state.profile.edited)
     const userInformation = useSelector(state=> state.user.userInformation)
+    const editFormVisibility = useSelector(state => state.profile.showEdit)
     const test = () => {
       dispatch(loadCurrentUser())
         }
 
-        const [clickedEdit , setclickedEdit] = useState(false)
+    const [clickedEdit , setclickedEdit] = useState(false)
+    const clickEditFormOn = (data) => {
 
+      dispatch(showEditForm(data))
+    }
 
     useEffect(()=> {
     dispatch(loadCurrentUser())
@@ -79,7 +84,7 @@ if(!userInformation) {
           <Container className={classes.cardGrid} maxWidth="md">
           <div>picture here from user's profile information</div>
             <Typography component="h1" variant="h3" align="right" color="primary" gutterBottom>
-                Hello {userInformation.firstName}!
+                Hello {userInformation.firstName.toUpperCase()}!
             </Typography>
             <Typography component="h1" variant="subtitle1" align="center" gutterBottom>
                 Do Something Today That Your Future Self Will Thank You For!<br></br>
@@ -104,14 +109,14 @@ if(!userInformation) {
                      My-Balance: {userInformation.balance} <Button size="small" variant="outlined" color="primary">Charge</Button> <br></br> 
                      Training since : {userInformation.started_training_year} <br></br> 
                      About Me: {userInformation.aboutMe} 
-                     {!clickedEdit ? <Button size="small" variant="outlined" color="primary" onClick={()=>setclickedEdit(!clickedEdit)}>edit</Button> : <Button size="small" variant="outlined" onClick={()=>setclickedEdit(!clickedEdit)} color="secondary" >Cancel</Button>}
+                     {!editFormVisibility ? <Button size="small" variant="outlined" color="primary" onClick={()=>clickEditFormOn(true)}>edit</Button> : <Button size="small" variant="outlined" onClick={()=>clickEditFormOn(false)} color="secondary" >Cancel</Button>}
                      
 
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
-              {clickedEdit ?<EditProfileAboutMe/> : null}  
+              {editFormVisibility ?<EditProfileAboutMe/> : null}  
                 <Grid item xs={12} sm={6}>
                 <Card className={classes.card}>
                 <Typography gutterBottom component="h2">
