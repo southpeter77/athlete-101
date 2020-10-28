@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import user from "./actions/user"
+import plan from "./actions/plan"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 const reducer = combineReducers ({
-    user
+    user,
+    plan
 })
 
 const configureStore = (initialState) => {

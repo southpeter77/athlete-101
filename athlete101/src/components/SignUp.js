@@ -261,7 +261,7 @@ if(token) {
                 Athlete 101 
         </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                Create, publish, share
+                Create, Customize, Publish
         </Typography>
             </footer>
             {/* End footer */}

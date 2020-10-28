@@ -18,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { ButtonGroup } from '@material-ui/core';
+import {grabTopList} from "../store/actions/plan"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -58,10 +59,13 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
   const [loaded, setLoaded] = useState(false);
   const token = useSelector((state) => state.user.token)
   const currentUser = useSelector((state) => state.user.currentUser)
-useEffect(() => {
+  const topPlanList = useSelector((state) => state.plan.topPlanList)
+
+  useEffect(() => {
+    dispatch(grabTopList())
   setLoaded(true);
   loadToken()
-})
+},[])
     const handleClick =() => {
         dispatch(logout());
     }
@@ -141,7 +145,7 @@ useEffect(() => {
           Athlete 101 
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Create, publish, share
+        Create, Customize, Publish
         </Typography>
       </footer>
       {/* End footer */}
