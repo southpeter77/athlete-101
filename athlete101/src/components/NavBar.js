@@ -10,7 +10,9 @@ import { ButtonGroup } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Login from "./LogIn"
-
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import HomeIcon from '@material-ui/icons/Home';
+import IconButton from '@material-ui/core/IconButton';
 
 const NavBar = ({ needLogin, loadToken }) => {
     const [showLogin, setShowLogin] = useState(false)
@@ -34,11 +36,15 @@ const NavBar = ({ needLogin, loadToken }) => {
     <AppBar position="relative">
       <Toolbar className ="ToolBarAligning">
         <Typography  variant="h4" color="inherit" noWrap>
-          ATHLETE 101
-        </Typography>
+        ATHLETE <FitnessCenterIcon></FitnessCenterIcon> 101
+        </Typography>    
+       <IconButton onClick={()=> window.location.replace("/")}>
+         <HomeIcon style={{ fontSize: 40 }} ></HomeIcon>
+         </IconButton> 
         {needLogin ?
         (<>
         <ButtonGroup>
+      
                <Button color="inherit" onClick={()=>setShowLogin(!showLogin)}>Log In</Button>
               <Button href="/signup" color="inherit">Sign Up</Button>
         </ButtonGroup>

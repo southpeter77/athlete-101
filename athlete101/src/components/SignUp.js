@@ -21,6 +21,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Box from '@material-ui/core/Box';
 import {signUp} from "../store/actions/user"
+import NavBar from "./NavBar"
+
 
 const useStyles = makeStyles((theme) => ({
     heroContent: {
@@ -82,7 +84,7 @@ const SignUp = ({ needLogin, loadToken }) => {
     const[lastName, setLastName] = useState('');
     const[started_training_year, setStarted_training_year] = useState('');
     const[balance, setBalance] = useState('');
-    const errors = useSelector(state=> state.user.error)
+    const errors = useSelector(state=> state.user.signInError)
     
   const updateProperty = (callback) => (e) => {
     callback(e.target.value);
@@ -108,13 +110,7 @@ const handleSubmit = async (e) => {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="relative">
-                <Toolbar className="ToolBarAligning">
-                    <Typography variant="h4" color="inherit" noWrap>
-                        Athlete101
-          </Typography>
-                </Toolbar>
-            </AppBar>
+    <NavBar></NavBar>
             <main className="mainContainer">
                       <div className="pictureNextToForm"></div>  
                    <div className="formContainer">  

@@ -27,7 +27,7 @@ const Login = () => {
     const[password, setPassword] = useState("");
     const dispatch = useDispatch()
     const token = useSelector((state) => state.user.token)
-    const errors = useSelector((state)=> state.user.error)
+    const errors = useSelector((state)=> state.user.logInError)
     const updateProperty = (callback) => (e) => {
         callback(e.target.value);
       };
