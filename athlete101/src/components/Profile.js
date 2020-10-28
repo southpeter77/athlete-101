@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CardActions from '@material-ui/core/CardActions';
 import EditProfileAboutMe from "./EditProfileAboutMe"
 
+
 const useStyles = makeStyles((theme) => ({
 
     heroContent: {
@@ -49,22 +50,26 @@ const Profile = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch()
-
+    const editedAboutMe = useSelector(state => state.profile.edited)
     const userInformation = useSelector(state=> state.user.userInformation)
     const test = () => {
       dispatch(loadCurrentUser())
         }
 
+        const [clickedEdit , setclickedEdit] = useState(false)
+
+
     useEffect(()=> {
     dispatch(loadCurrentUser())
-    },[])
+    setclickedEdit(!clickedEdit)
+    },[editedAboutMe])
 
 if(!userInformation) {
     return null
 }
     return (
         <>     
-        <EditProfileAboutMe/>
+
         <NavBar/>
         <button onClick={test}>HERE</button>
         <CssBaseline />
@@ -85,9 +90,9 @@ if(!userInformation) {
            
                   <Grid item xs={12}>
                   <Card  variant="outlined" color="primary" className={classes.card}>
-                  <CardMedia
+                  {/* <CardMedia
                    className={classes.cardMedia}
-                 />
+                 /> */}
                  <CardContent className={classes.cardContent}>
                      <Typography gutterBottom variant="h4" component="h2">
                     Profile
@@ -98,13 +103,15 @@ if(!userInformation) {
                      Email: {userInformation.email} <br></br>
                      My-Balance: {userInformation.balance} <Button size="small" variant="outlined" color="primary">Charge</Button> <br></br> 
                      Training since : {userInformation.started_training_year} <br></br> 
-                     About Me: {userInformation.aboutMe} <Button size="small" variant="outlined" color="primary">edit</Button>
+                     About Me: {userInformation.aboutMe} 
+                     {!clickedEdit ? <Button size="small" variant="outlined" color="primary" onClick={()=>setclickedEdit(!clickedEdit)}>edit</Button> : <Button size="small" variant="outlined" onClick={()=>setclickedEdit(!clickedEdit)} color="secondary" >Cancel</Button>}
+                     
 
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
-                
+              {clickedEdit ?<EditProfileAboutMe/> : null}  
                 <Grid item xs={12} sm={6}>
                 <Card className={classes.card}>
                 <Typography gutterBottom component="h2">
@@ -132,6 +139,7 @@ if(!userInformation) {
                       </Button>
                  </CardActions>
                   </Card>
+                  
             </Grid> 
             <Grid item xs={12} sm={6}>
             <Card className={classes.card}>

@@ -19,7 +19,7 @@ const NavBar = () => {
     const [loaded, setLoaded] = useState(false);
   const token = useSelector(state => state.user.token)
     const dispatch = useDispatch();
-
+  
 
     useEffect(()=> {
       setLoaded(true)

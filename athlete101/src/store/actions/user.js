@@ -58,7 +58,6 @@ export const loadCurrentUser = () => async (dispatch) => {
     const response  = await fetch(`${apiUrl}/user/${currentUserId}`);
     if (response.ok) {
         const userData = await response.json();
-        console.log(userData)
         dispatch(setCurrentUserInformation(userData))
     }
 }

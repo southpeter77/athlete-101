@@ -7,6 +7,7 @@ import CancelPresentationRoundedIcon from '@material-ui/icons/CancelPresentation
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from "react-redux";
 import {login} from "../store/actions/user"
+import {editProfielAboutMeFunction} from "../store/actions/profile"
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -24,23 +25,28 @@ const useStyles = makeStyles((theme) => ({
 const EditProfileAboutMe = () => {
     const[aboutMe ,setAboutMe] = useState("");
     const classes = useStyles();
-
+    const dispatch = useDispatch()
+    const error = useSelector(state => state.profile.editAboutMeError)
     const updateProperty = (callback) => (e) => {
         callback(e.target.value);
       };
 
       const handleSubmit = (e) => {
           e.preventDefault()
-          console.log(aboutMe)
+          dispatch(editProfielAboutMeFunction(aboutMe))
       }
+
 
     return (
         <>
-          <Typography component="h1" variant="h5">
+          <Typography color="primary" component="h1" variant="h4">
             About Me
-        </Typography>
+        </Typography> 
+        
         <div className="editProfileAboutMeForm3">
+         
         <form className="editProfileAboutMeForm2"  className={classes.form} noValidate onSubmit={handleSubmit}>
+         {error ? <p>You need to provide About Me!!!</p>:null}
         <Grid>
         <TextField
         className="editProfileAboutMeForm2"
