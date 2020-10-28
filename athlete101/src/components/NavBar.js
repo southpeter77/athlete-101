@@ -17,8 +17,12 @@ import IconButton from '@material-ui/core/IconButton';
 const NavBar = ({ needLogin, loadToken }) => {
     const [showLogin, setShowLogin] = useState(false)
 
-
-
+  const token = useSelector(state => state.user.token)
+  // if(token) {
+  //   setShowLogin(false)
+  // } else {
+  //   setShowLogin(true)
+  // }
     const dispatch = useDispatch();
 
     const handleClick =() => {
@@ -52,7 +56,7 @@ const NavBar = ({ needLogin, loadToken }) => {
         ) :
         (
           <ButtonGroup>
-          <Button color="inherit">My 101</Button>
+          <Button color="inherit" href="/myProfile">My 101</Button>
           <Button onClick={handleClick} color="inherit">Log Out</Button>
          </ButtonGroup>
         )

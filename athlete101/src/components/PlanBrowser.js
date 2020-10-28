@@ -59,7 +59,7 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
   const [loaded, setLoaded] = useState(false);
   const token = useSelector((state) => state.user.token)
   const currentUser = useSelector((state) => state.user.currentUser)
-  const topPlanList = useSelector((state) => state.plan.topPlanList)
+  const topPlanList = useSelector((state) => state.plan)
 
   useEffect(() => {
     dispatch(grabTopList())
@@ -94,50 +94,51 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary">
-                    Main call to action
+                    click to view all category
                   </Button>
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Secondary action
+                    Explore all the plan and lead to search button
                   </Button>
                 </Grid>
               </Grid>
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+  {/* show the top plans right here//////////////////////*/}
+      <Container className={classes.cardGrid} maxWidth="md">
+        <Grid container spacing ={4}>
+  {Object.values(topPlanList).map((each, i)=>{
+    return (
+      <Grid item key={i} xs={12} sm={6} md={4}>
+          <Card className={classes.card}>
+            {/* <CardMedia 
+            className ={classes.cardMedia} 
+            image={`../images/simple${i+1}.png`}
+            ></CardMedia> */}
+            <CardContent className={classes.cardContent}>
+        <Typography gutterBottom variant="h5" component="h2">
+          Top Plan {i+1}
+        </Typography>
+        <Typography>
+          Trainer: {each.User.firstName} {each.User.lastName}
+        </Typography>
+        <Typography>
+          {each.Category.categoryName}
+        </Typography>
+        <Typography>
+          {each.description}
+        </Typography>
+            </CardContent>
+
+          </Card>
+        </Grid>
+    )
+    })}
+
+        </Grid>
+      </Container>
       </main>
       {/* Footer */}
       <footer className={classes.footer}>

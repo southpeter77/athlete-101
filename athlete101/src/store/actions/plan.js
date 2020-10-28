@@ -1,4 +1,6 @@
 import {apiUrl} from "../../config"
+import merge from "lodash/merge";
+
 
 export const GRAB_ALL_PLANS = "GRAB_ALL_PLANS";
 
@@ -24,9 +26,13 @@ export const grabTopList = () => async (dispatch) => {
 //////////////////////////////////////////////////////
 
 export default function reducer (state ={}, action) {
+    Object.freeze(state);
     switch(action.type) {
         case GRAB_ALL_PLANS: {
-            return {...state, topPlanList:action.list}
+            // return {...state, topPlanList:action.list}
+            const list= action.list.map((each) => ({[each.id]: each}));
+            return merge({},state,...list)
+
         }
 
         default: return state
