@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Redirect, Switch, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {loadToken} from "../store/actions/user"
 import { logout } from "../store/actions/user";
-
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,12 +9,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import { ButtonGroup } from '@material-ui/core';
 import {grabTopList} from "../store/actions/plan"
 
 const useStyles = makeStyles((theme) => ({
@@ -49,8 +43,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6),
   },
 }));
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const PlanBrowser = ({ needLogin, loadToken })=> {
   const classes = useStyles();

@@ -6,7 +6,7 @@ export const REMOVE_TOKEN = "REMOVE_TOKEN";
 export const SET_CURRENT_USER = "SET_CURRENT_USER"
 export const LOGIN_ERROR_ARRAY = "LOGIN_ERROR_ARRAY"
 export const SIGNIN_ERROR_ARRAY = "SIGNIN_ERROR_ARRAY"
-
+export const SET_CURRENT_USER_INFORMATION = "SET_CURRENT_USER_INFORMATION"
 
 //////////////////////////////////////////////////////////////////
 export const setToken = (token) => {
@@ -37,6 +37,13 @@ export const signinErrorArray= (errorArray) => {
         errorArray
     }
 }
+
+export const setCurrentUserInformation = (information) => {
+    return {
+        type:SET_CURRENT_USER_INFORMATION,
+        information
+    }
+}
 //////////////////////////////////////////////////////////////////
 export const loadToken = () => async (dispatch) => {
   const token = window.localStorage.getItem(TOKEN_KEY);
@@ -44,7 +51,18 @@ export const loadToken = () => async (dispatch) => {
             dispatch(setToken(token))
     }
 }
+///////////////////////////////////////////////////////////
+export const loadCurrentUser = () => async (dispatch) => {
+    const currentUserId = window.localStorage.getItem("currentUserId");
 
+    const response  = await fetch(`${apiUrl}/user/${currentUserId}`);
+    if (response.ok) {
+        const userData = await response.json();
+        console.log(userData)
+        dispatch(setCurrentUserInformation(userData))
+    }
+}
+///////////////////////////////////////////////////////////
 export const login = ({email, password}) => async (dispatch) => {
     try {
     const response = await fetch(`${apiUrl}/user`, 
@@ -56,6 +74,7 @@ export const login = ({email, password}) => async (dispatch) => {
     if (response.ok) {
         const { token, userId } = await response.json();
         window.localStorage.setItem(TOKEN_KEY, token);
+        window.localStorage.setItem("currentUserId", userId)
         dispatch(setToken(token));
         dispatch(setCurrentUser(userId))
       } 
@@ -69,10 +88,11 @@ const arrayOfError =badRequest.error
 dispatch(loginErrorArray(arrayOfError))
     }
 }
-
+////////////////////////////////////////////
 export const logout = () => async (dispatch, getState) => {
     const {user:{token}} = getState();
     window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem("currentUserId")
     dispatch(removeToken());
 }
 /////////////////////////////////////////////////////////////////
@@ -87,6 +107,7 @@ try {
        if(response.ok) {
         const {token, userId} = await response.json();
         window.localStorage.setItem(TOKEN_KEY,token);
+        window.localStorage.setItem("currentUserId", userId)
         dispatch(setToken(token));
         dispatch(setCurrentUser(userId))
     } else {
@@ -118,6 +139,9 @@ export default function reducer (state ={}, action) {
 
         case SIGNIN_ERROR_ARRAY:
              return {...state, signInError:action.errorArray} 
+
+        case SET_CURRENT_USER_INFORMATION:
+            return {...state, userInformation:action.information}
 
         default :
             return state

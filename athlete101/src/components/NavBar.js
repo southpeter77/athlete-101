@@ -14,21 +14,25 @@ import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
 
-const NavBar = ({ needLogin, loadToken }) => {
+const NavBar = () => {
     const [showLogin, setShowLogin] = useState(false)
-
+    const [loaded, setLoaded] = useState(false);
   const token = useSelector(state => state.user.token)
-  // if(token) {
-  //   setShowLogin(false)
-  // } else {
-  //   setShowLogin(true)
-  // }
     const dispatch = useDispatch();
 
+
+    useEffect(()=> {
+      setLoaded(true)
+      dispatch(loadToken())
+    })
+
     const handleClick =() => {
-      setShowLogin(!showLogin)
         dispatch(logout());
     }
+if (!loaded) {
+  return null
+}
+
 
     return (
     <React.Fragment>
@@ -45,7 +49,7 @@ const NavBar = ({ needLogin, loadToken }) => {
        <IconButton onClick={()=> window.location.replace("/")}>
          <HomeIcon style={{ fontSize: 40 }} ></HomeIcon>
          </IconButton> 
-        {needLogin ?
+        {!token ?
         (<>
         <ButtonGroup>
       
@@ -69,13 +73,13 @@ const NavBar = ({ needLogin, loadToken }) => {
     )
 }
 
-const NavBarContainer = () => {
-    const needLogin = useSelector((state) => !state.user.token);
-    const dispatch = useDispatch();
-    return <NavBar needLogin={needLogin} loadToken={() => dispatch(loadToken())} />;
-  };
+// const NavBarContainer = () => {
+//     const needLogin = useSelector((state) => !state.user.token);
+//     const dispatch = useDispatch();
+//     return <NavBar needLogin={needLogin} loadToken={() => dispatch(loadToken())} />;
+//   };
 
 
 
 
-export default NavBarContainer;
+export default NavBar;
