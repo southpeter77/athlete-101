@@ -19,8 +19,6 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { ButtonGroup } from '@material-ui/core';
 
-import Login from "./LogIn"
-
 const useStyles = makeStyles((theme) => ({
 
   heroContent: {
@@ -76,7 +74,6 @@ useEffect(() => {
 
   return (
     <React.Fragment>
-      <Login></Login>
       <CssBaseline />
       <main>
         {/* Hero unit */}

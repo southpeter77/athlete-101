@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { BrowserRouter, Redirect, Switch, NavLink } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 // import { loadToken } from "../store/actions/user"
 import AppBar from '@material-ui/core/AppBar';
@@ -119,9 +119,7 @@ const handleSubmit = async (e) => {
                 </Toolbar>
             </AppBar>
             <main className="mainContainer">
-                      <div className="pictureNextToForm">
-                         wow
-                       </div>  
+                      <div className="pictureNextToForm"></div>  
                    <div className="formContainer">  
                 <div className={classes.paper}>
                     <Typography component="h1" variant="h5">

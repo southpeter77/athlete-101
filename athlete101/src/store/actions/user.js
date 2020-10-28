@@ -30,7 +30,8 @@ export const loadToken = () => async (dispatch) => {
     }
 }
 
-export const login = (email, password) => async (dispatch) => {
+export const login = ({email, password}) => async (dispatch) => {
+    try {
     const response = await fetch(`${apiUrl}/user`, 
     {method: "put",
     headers: { "Content-Type": "application/json" },
@@ -42,7 +43,16 @@ export const login = (email, password) => async (dispatch) => {
         window.localStorage.setItem(TOKEN_KEY, token);
         dispatch(setToken(token));
         dispatch(setCurrentUser(userId))
+      } 
+
+      if (!response.ok){
+          throw response
       }
+    }catch(err) {
+        const badRequest = await err.json();
+const errorArray =badRequest.error
+console.log(errorArray)
+    }
 }
 
 export const logout = () => async (dispatch, getState) => {

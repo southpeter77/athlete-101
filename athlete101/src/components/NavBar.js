@@ -9,31 +9,37 @@ import Button from '@material-ui/core/Button';
 import { ButtonGroup } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-
+import Login from "./LogIn"
 
 
 const NavBar = ({ needLogin, loadToken }) => {
-    
+    const [showLogin, setShowLogin] = useState(false)
+
+
+
     const dispatch = useDispatch();
 
     const handleClick =() => {
+      setShowLogin(!showLogin)
         dispatch(logout());
     }
 
-
-
     return (
     <React.Fragment>
+        {
+            showLogin ? <Login></Login> : null
+        }
+     
     <CssBaseline />
     <AppBar position="relative">
       <Toolbar className ="ToolBarAligning">
-        <Typography variant="h4" color="inherit" noWrap>
-          Athlete101
+        <Typography  variant="h4" color="inherit" noWrap>
+          ATHLETE 101
         </Typography>
         {needLogin ?
         (<>
         <ButtonGroup>
-               <Button href="/login" color="inherit">Log In</Button>
+               <Button color="inherit" onClick={()=>setShowLogin(!showLogin)}>Log In</Button>
               <Button href="/signup" color="inherit">Sign Up</Button>
         </ButtonGroup>
           </>
