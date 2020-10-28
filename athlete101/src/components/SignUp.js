@@ -103,10 +103,14 @@ const handleSubmit = async (e) => {
     dispatch(signUp(payload))
 }
 
-// useEffect(() => {
+const token = useSelector(state => state.user.token)
+useEffect(() => {
 
-// })
+},[token])
 
+if(token) {
+   return <Redirect to="/"></Redirect>
+}
     return (
         <React.Fragment>
             <CssBaseline />
@@ -254,10 +258,10 @@ const handleSubmit = async (e) => {
             {/* Footer */}
             <footer className={classes.footer}>
                 <Typography variant="h6" align="center" gutterBottom>
-                    Footer
+                Athlete 101 
         </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                Create, publish, share
         </Typography>
             </footer>
             {/* End footer */}
