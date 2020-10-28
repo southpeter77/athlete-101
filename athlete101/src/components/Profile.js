@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {loadCurrentUser} from "../store/actions/user"
 import { useDispatch, useSelector } from 'react-redux';
+import CardActions from '@material-ui/core/CardActions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,11 +70,98 @@ if(!userInformation) {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container className={classes.cardGrid} maxWidth="lg">
-            <Typography component="h1" variant="h4" align="left" color="textPrimary" gutterBottom>
+          <Container className={classes.cardGrid} maxWidth="md">
+          <div>picture here from user's profile information</div>
+            <Typography component="h1" variant="h3" align="left" color="primary" gutterBottom>
                 Hello {userInformation.firstName}!
             </Typography>
-            
+            <Typography component="h1" variant="h5" align="left" color="primary" gutterBottom>
+                some info below here
+            </Typography>
+        
+            <Grid container spacing={2}>
+                  <Grid xs={12}>
+                  <Card  variant="outlined" color="primary" className={classes.card}>
+                  {/* <CardMedia
+                   className={classes.cardMedia}
+                    image=
+                     title="
+                 /> */}
+                 <CardContent className={classes.cardContent}>
+                     <Typography gutterBottom variant="h4" component="h2">
+                    Profile
+                      </Typography>
+                      <Typography variant="h6" component="h2">
+                     {userInformation.trainer ? "Trainer": "Trainee"}: 
+                     {userInformation.firstName} {userInformation.lastName} <br></br> 
+                     Email: {userInformation.email} <br></br>
+                     My-Balance: {userInformation.balance} <Button size="small" variant="outlined" color="primary">Charge</Button> <br></br> 
+                     Training since : {userInformation.started_training_year} <br></br> 
+                     About Me: {userInformation.aboutMe} <Button size="small" variant="outlined" color="primary">edit</Button>
+
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+                
+                <Grid xs={12} sm={6}>
+                <Card className={classes.card}>
+                <Typography gutterBottom variant="none" component="h2">
+                      My Workout Plans
+                      </Typography>
+                  {/* <CardMedia
+                   className={classes.cardMedia}
+                    image=
+                     title="
+                 /> */}
+                 <CardContent className={classes.cardContent}>
+                     <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                      </Typography>
+                      <Typography>
+                        This is a media card. You can use this section to describe the content.
+                      </Typography>
+                    </CardContent>
+                  <CardActions>
+                      <Button size="small" color="primary">
+                       View
+                      </Button>
+                      <Button size="small" color="primary">
+                      Edit
+                      </Button>
+                 </CardActions>
+                  </Card>
+            </Grid> 
+            <Grid xs={12} sm={6}>
+            <Card className={classes.card}>
+                  {/* <CardMedia
+                   className={classes.cardMedia}
+                    image=
+                     title="
+                 /> */}
+       <Typography gutterBottom variant="none" component="h2">
+                      Purchased Plans
+                      </Typography>
+                 <CardContent className={classes.cardContent}>
+                     <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                      </Typography>
+                      <Typography>
+                        This is a media card. You can use this section to describe the content.
+                      </Typography>
+                    </CardContent>
+                  <CardActions>
+                      <Button size="small" color="primary">
+                       View
+                      </Button>
+                      <Button size="small" color="primary">
+                      Edit
+                      </Button>
+                 </CardActions>
+                  </Card>
+            </Grid> 
+            </Grid>
+         
           </Container>
         </div>
   {/* show my plans on the left and show me subscribing plan on right //////////////////////*/}
