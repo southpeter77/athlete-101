@@ -2,64 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Switch, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {loadToken} from "../store/actions/user"
-
-
-// const PlanBrowser = ({ needLogin, loadToken })=>  {
-
-//   const [loaded, setLoaded] = useState(false);
-//   const token = useSelector((state) => state.user.token)
-//   const currentUser = useSelector((state) => state.user.currentUser)
-// useEffect(() => {
-//   setLoaded(true);
-//   loadToken()
-// })
-
-
-//   if (!loaded) {
-//     return null
-//   }
-
-//   return (
-//     <>
-//      <div className="topNavBar">
-//        <div className="topNavBar_text">
-//          Athlete-101
-//        </div>
-//        {!token ? (
-//        <div className="buttons">
-//           <NavLink to="/login" className="signup-login-button"> Log In</NavLink>
-//          <NavLink to="/signup" className="signup-login-button"> Sign Up</NavLink>
-//        </div>
-//        ): (
-//        <div>
-//          <button>
-//            My 101
-//          </button>
-//        </div>
-//        )}
-//      </div>
-//      <div className="container">
-
-//      </div>
-//     </>
-//   );
-// }
-
-
-
-
-// const AppContainer = () => {
-//   const needLogin = useSelector((state) => !state.user.token);
-//   const dispatch = useDispatch();
-//   return <PlanBrowser needLogin={needLogin} loadToken={() => dispatch(loadToken())} />;
-// };
-
-
-// export default AppContainer
+import { logout } from "../store/actions/user";
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -72,6 +18,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { ButtonGroup } from '@material-ui/core';
+
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -109,6 +57,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const PlanBrowser = ({ needLogin, loadToken })=> {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [loaded, setLoaded] = useState(false);
   const token = useSelector((state) => state.user.token)
@@ -117,6 +66,10 @@ useEffect(() => {
   setLoaded(true);
   loadToken()
 })
+    const handleClick =() => {
+        dispatch(logout());
+    }
+
 
 
   if (!loaded) {
@@ -142,7 +95,7 @@ useEffect(() => {
           (
             <ButtonGroup>
             <Button color="inherit">My 101</Button>
-           <Button color="inherit">Log Out</Button>
+            <Button onClick={handleClick} color="inherit">Log Out</Button>
            </ButtonGroup>
           )
           }
@@ -232,3 +185,67 @@ const AppContainer = () => {
 
 
 export default AppContainer
+
+
+
+
+
+
+
+
+
+
+
+
+// const PlanBrowser = ({ needLogin, loadToken })=>  {
+
+//   const [loaded, setLoaded] = useState(false);
+//   const token = useSelector((state) => state.user.token)
+//   const currentUser = useSelector((state) => state.user.currentUser)
+// useEffect(() => {
+//   setLoaded(true);
+//   loadToken()
+// })
+
+
+//   if (!loaded) {
+//     return null
+//   }
+
+//   return (
+//     <>
+//      <div className="topNavBar">
+//        <div className="topNavBar_text">
+//          Athlete-101
+//        </div>
+//        {!token ? (
+//        <div className="buttons">
+//           <NavLink to="/login" className="signup-login-button"> Log In</NavLink>
+//          <NavLink to="/signup" className="signup-login-button"> Sign Up</NavLink>
+//        </div>
+//        ): (
+//        <div>
+//          <button>
+//            My 101
+//          </button>
+//        </div>
+//        )}
+//      </div>
+//      <div className="container">
+
+//      </div>
+//     </>
+//   );
+// }
+
+
+
+
+// const AppContainer = () => {
+//   const needLogin = useSelector((state) => !state.user.token);
+//   const dispatch = useDispatch();
+//   return <PlanBrowser needLogin={needLogin} loadToken={() => dispatch(loadToken())} />;
+// };
+
+
+// export default AppContainer

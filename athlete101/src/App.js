@@ -1,6 +1,6 @@
 import React from 'react';
 import AppContainer from "./components/PlanBrowser"
-import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SignUp from "./components/SignUp"
 
 const App = ()=>  {

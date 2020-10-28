@@ -4,6 +4,7 @@ export const TOKEN_KEY = "TOKEN_KEY";
 export const SET_TOKEN = "SET_TOKEN";
 export const REMOVE_TOKEN = "REMOVE_TOKEN";
 export const SET_CURRENT_USER = "SET_CURRENT_USER"
+
 //////////////////////////////////////////////////////////////////
 export const setToken = (token) => {
     return {type: SET_TOKEN, token}
@@ -48,6 +49,30 @@ export const logout = () => async (dispatch, getState) => {
     const {user:{token}} = getState();
     window.localStorage.removeItem(TOKEN_KEY);
     dispatch(removeToken());
+}
+/////////////////////////////////////////////////////////////////
+export const signUp = (payload) => async (dispatch) => {
+
+try {
+    const response = await fetch(`${apiUrl}/user/signup`, {
+        method:"post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    })
+       if(response.ok) {
+        const {token, userId} = await response.json();
+        window.localStorage.setItem(TOKEN_KEY,token);
+        dispatch(setToken(token));
+        dispatch(setCurrentUser(userId))
+    } else {
+        throw response
+    }
+} catch(e) {
+    const badRequest = await e.json();
+    const arrayOfErrorMessage = badRequest.error.errors
+    console.log(arrayOfErrorMessage)
+}
+
 }
 //////////////////////////////////////////////////////////////////
 export default function reducer (state ={}, action) {

@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Redirect, Switch, NavLink } from "react-router-dom";
+// import { BrowserRouter, Redirect, Switch, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loadToken } from "../store/actions/user"
+// import { loadToken } from "../store/actions/user"
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CameraIcon from '@material-ui/icons/PhotoCamera';
+// import Card from '@material-ui/core/Card';
+// import CardActions from '@material-ui/core/CardActions';
+// import CardContent from '@material-ui/core/CardContent';
+// import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+// import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Box from '@material-ui/core/Box';
-
+import {signUp} from "../store/actions/user"
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -72,11 +72,10 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const SignUp = ({ needLogin, loadToken }) => {
     const classes = useStyles();
-
+    const dispatch = useDispatch()
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[confirmPassword, setConfirmPassword] = useState('');
@@ -97,14 +96,17 @@ const SignUp = ({ needLogin, loadToken }) => {
       callback(!current)
       }
 
-const handleSubmit = (e) => {
-    e.preventDefault()
- const payload ={
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const payload ={
      email, password,confirmPassword,aboutMe, trainer,firstName, lastName, started_training_year, balance
- }
- console.log(payload)
+    }
+    dispatch(signUp(payload))
 }
 
+// useEffect(() => {
+
+// })
 
     return (
         <React.Fragment>
@@ -125,7 +127,7 @@ const handleSubmit = (e) => {
                     <Typography component="h1" variant="h5">
                         Sign up
          </Typography>
-  <form className={classes.form} noValidate>
+  <form className={classes.form} noValidate onSubmit={handleSubmit}>
       <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
               <TextField
@@ -235,7 +237,7 @@ const handleSubmit = (e) => {
                    variant="contained"
                    color="primary"
                    className={classes.submit}
-                   onClick={handleSubmit}
+                //    onSubmit={handleSubmit}
                        >
                            Sign Up
                            </Button>
