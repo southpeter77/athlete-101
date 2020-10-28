@@ -54,9 +54,6 @@ const Profile = () => {
     const editedAboutMe = useSelector(state => state.profile.edited)
     const userInformation = useSelector(state=> state.user.userInformation)
     const editFormVisibility = useSelector(state => state.profile.showEdit)
-    const test = () => {
-      dispatch(loadCurrentUser())
-        }
 
     const [clickedEdit , setclickedEdit] = useState(false)
     const clickEditFormOn = (data) => {
@@ -76,7 +73,6 @@ if(!userInformation) {
         <>     
 
         <NavBar/>
-        <button onClick={test}>HERE</button>
         <CssBaseline />
       <main>
         {/* Hero unit */}
@@ -99,7 +95,7 @@ if(!userInformation) {
                    className={classes.cardMedia}
                  /> */}
                  <CardContent className={classes.cardContent}>
-                     <Typography gutterBottom variant="h4" component="h2">
+                     <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
                     Profile
                       </Typography>
                       <Typography variant="h6" component="h2">
@@ -119,7 +115,7 @@ if(!userInformation) {
               {editFormVisibility ?<EditProfileAboutMe/> : null}  
                 <Grid item xs={12} sm={6}>
                 <Card className={classes.card}>
-                <Typography gutterBottom component="h2">
+                <Typography gutterBottom component="h2" className="myProfileFont" >
                       My Workout Plans
                       </Typography>
                   {/* <CardMedia
@@ -128,7 +124,7 @@ if(!userInformation) {
                      title="
                  /> */}
                  <CardContent className={classes.cardContent}>
-                     <Typography gutterBottom variant="h5" component="h2">
+                     <Typography gutterBottom variant="h5" component="h2" >
                       Heading
                       </Typography>
                       <Typography>
@@ -153,7 +149,7 @@ if(!userInformation) {
                     image=
                      title="
                  /> */}
-       <Typography gutterBottom component="h2">
+       <Typography gutterBottom component="h2" className="myProfileFont"  >
                       Purchased Plans
                       </Typography>
                  <CardContent className={classes.cardContent}>
