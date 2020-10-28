@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContainer from "./components/PlanBrowser"
+import HomePage from "./components/HomePage"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SignUp from "./components/SignUp"
 
@@ -12,7 +12,7 @@ const App = ()=>  {
     <BrowserRouter>
       <Switch>
         <Route exact path="/signup" component={SignUp}></Route>
-        <Route exact path="/" component={AppContainer}></Route>
+        <Route exact path="/" component={HomePage}></Route>
       </Switch>
     </BrowserRouter>
    

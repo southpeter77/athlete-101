@@ -19,12 +19,10 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { ButtonGroup } from '@material-ui/core';
 
-
+import Login from "./LogIn"
 
 const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
+
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
@@ -78,31 +76,8 @@ useEffect(() => {
 
   return (
     <React.Fragment>
+      <Login></Login>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar className ="ToolBarAligning">
-          <Typography variant="h4" color="inherit" noWrap>
-            Athlete101
-          </Typography>
-          {needLogin ?
-          (<>
-          <ButtonGroup>
-                 <Button href="/login" color="inherit">Log In</Button>
-                <Button href="/signup" color="inherit">Sign Up</Button>
-          </ButtonGroup>
-            </>
-          ) :
-          (
-            <ButtonGroup>
-            <Button color="inherit">My 101</Button>
-            <Button onClick={handleClick} color="inherit">Log Out</Button>
-           </ButtonGroup>
-          )
-          }
-             
-        </Toolbar>
-     
-      </AppBar>
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
