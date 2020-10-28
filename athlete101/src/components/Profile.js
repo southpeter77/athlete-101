@@ -12,7 +12,7 @@ import Container from '@material-ui/core/Container';
 import {loadCurrentUser} from "../store/actions/user"
 import { useDispatch, useSelector } from 'react-redux';
 import CardActions from '@material-ui/core/CardActions';
-
+import EditProfileAboutMe from "./EditProfileAboutMe"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -63,7 +63,8 @@ if(!userInformation) {
     return null
 }
     return (
-        <>
+        <>     
+        <EditProfileAboutMe/>
         <NavBar/>
         <button onClick={test}>HERE</button>
         <CssBaseline />
@@ -72,21 +73,21 @@ if(!userInformation) {
         <div className={classes.heroContent}>
           <Container className={classes.cardGrid} maxWidth="md">
           <div>picture here from user's profile information</div>
-            <Typography component="h1" variant="h3" align="left" color="primary" gutterBottom>
+            <Typography component="h1" variant="h3" align="right" color="primary" gutterBottom>
                 Hello {userInformation.firstName}!
             </Typography>
-            <Typography component="h1" variant="h5" align="left" color="primary" gutterBottom>
-                some info below here
+            <Typography component="h1" variant="subtitle1" align="center" gutterBottom>
+                Do Something Today That Your Future Self Will Thank You For!<br></br>
             </Typography>
-        
+     
+    
             <Grid container spacing={2}>
-                  <Grid xs={12}>
+           
+                  <Grid item xs={12}>
                   <Card  variant="outlined" color="primary" className={classes.card}>
-                  {/* <CardMedia
+                  <CardMedia
                    className={classes.cardMedia}
-                    image=
-                     title="
-                 /> */}
+                 />
                  <CardContent className={classes.cardContent}>
                      <Typography gutterBottom variant="h4" component="h2">
                     Profile
@@ -104,9 +105,9 @@ if(!userInformation) {
                   </Card>
                 </Grid>
                 
-                <Grid xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                 <Card className={classes.card}>
-                <Typography gutterBottom variant="none" component="h2">
+                <Typography gutterBottom component="h2">
                       My Workout Plans
                       </Typography>
                   {/* <CardMedia
@@ -132,14 +133,14 @@ if(!userInformation) {
                  </CardActions>
                   </Card>
             </Grid> 
-            <Grid xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
             <Card className={classes.card}>
                   {/* <CardMedia
                    className={classes.cardMedia}
                     image=
                      title="
                  /> */}
-       <Typography gutterBottom variant="none" component="h2">
+       <Typography gutterBottom component="h2">
                       Purchased Plans
                       </Typography>
                  <CardContent className={classes.cardContent}>

@@ -143,3 +143,21 @@ body {
  border-radius: 10pt;
 
 }
+
+.editProfileAboutMeForm2{
+    display:flex;
+    width: 39em;
+    border: 3px solid rgb(63,81,181);
+    border-radius: 10px;
+    box-shadow: 2px 5px 7px rgb(66, 66, 66);
+}
+.editProfileAboutMeForm1{
+    width: 450pt;
+}
+.editProfileAboutMeForm3{
+    display:flex;
+    width: 40em;
+    border: 3px solid rgb(63,81,181);
+    border-radius: 10px;
+    box-shadow: 2px 5px 7px rgb(66, 66, 66);
+}
