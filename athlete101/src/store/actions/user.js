@@ -4,6 +4,7 @@ export const TOKEN_KEY = "TOKEN_KEY";
 export const SET_TOKEN = "SET_TOKEN";
 export const REMOVE_TOKEN = "REMOVE_TOKEN";
 export const SET_CURRENT_USER = "SET_CURRENT_USER"
+export const ERROR_ARRAY = "ERROR_ARRAY"
 
 //////////////////////////////////////////////////////////////////
 export const setToken = (token) => {
@@ -20,6 +21,12 @@ export const setCurrentUser = (userId) => {
     return {
         type:SET_CURRENT_USER,
         userId
+    }
+}
+export const errorArray = (errorArray) => {
+    return {
+        type: ERROR_ARRAY,
+        errorArray
     }
 }
 //////////////////////////////////////////////////////////////////
@@ -50,8 +57,8 @@ export const login = ({email, password}) => async (dispatch) => {
       }
     }catch(err) {
         const badRequest = await err.json();
-const errorArray =badRequest.error
-console.log(errorArray)
+const arrayOfError =badRequest.error
+dispatch(errorArray(arrayOfError))
     }
 }
 
@@ -77,10 +84,10 @@ try {
     } else {
         throw response
     }
-} catch(e) {
-    const badRequest = await e.json();
-    const arrayOfErrorMessage = badRequest.error.errors
-    console.log(arrayOfErrorMessage)
+} catch(err) {
+    const badRequest = await err.json();
+    const arrayOfError =badRequest.error
+    dispatch(errorArray(arrayOfError))
 }
 
 }
@@ -98,6 +105,8 @@ export default function reducer (state ={}, action) {
         case SET_CURRENT_USER:
             return {...state, currentUser:action.userId}
 
+        case ERROR_ARRAY:
+           return {...state, error:action.errorArray} 
         default :
             return state
     }

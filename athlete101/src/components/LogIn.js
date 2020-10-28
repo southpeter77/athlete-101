@@ -27,6 +27,7 @@ const Login = () => {
     const[password, setPassword] = useState("");
     const dispatch = useDispatch()
     const token = useSelector((state) => state.user.token)
+    const errors = useSelector((state)=> state.user.error)
     const updateProperty = (callback) => (e) => {
         callback(e.target.value);
       };
@@ -77,6 +78,10 @@ const Login = () => {
             onChange={updateProperty(setPassword)}
          />
         </Grid>
+        {errors ? <ul className="errorListLogin">
+            {errors.map((each, i) => <li key={i} >{each}</li>)}
+        </ul> :
+        null}
         <Button
                    type="submit"
                    variant="contained"

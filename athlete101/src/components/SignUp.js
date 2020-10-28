@@ -23,9 +23,6 @@ import Box from '@material-ui/core/Box';
 import {signUp} from "../store/actions/user"
 
 const useStyles = makeStyles((theme) => ({
-    icon: {
-        marginRight: theme.spacing(2),
-    },
     heroContent: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(8, 0, 6),
@@ -43,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
     },
     cardContent: {
         flexGrow: 1,
@@ -85,7 +82,7 @@ const SignUp = ({ needLogin, loadToken }) => {
     const[lastName, setLastName] = useState('');
     const[started_training_year, setStarted_training_year] = useState('');
     const[balance, setBalance] = useState('');
-
+    const errors = useSelector(state=> state.user.error)
     
   const updateProperty = (callback) => (e) => {
     callback(e.target.value);
@@ -125,6 +122,12 @@ const handleSubmit = async (e) => {
                     <Typography component="h1" variant="h5">
                         Sign up
          </Typography>
+   
+                {errors ? <ul className="errorListSignUp">
+            {errors.map((each, i) => <li key={i} >{each}</li>)}
+        </ul> :
+        null}
+      
   <form className={classes.form} noValidate onSubmit={handleSubmit}>
       <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
