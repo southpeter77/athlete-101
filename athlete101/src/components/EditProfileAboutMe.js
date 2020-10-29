@@ -55,8 +55,10 @@ const EditProfileAboutMe = () => {
             name="aboutMe"
             variant="outlined"
             required
+            multiline
+            rows={4}
             id="aboutMe"
-            label="about me"
+            label="A short information about you! (Character less than 255)"
             autoFocus
             value={aboutMe}
             onChange={updateProperty(setAboutMe)}

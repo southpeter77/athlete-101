@@ -104,7 +104,10 @@ if(!userInformation) {
                      Email: {userInformation.email} <br></br>
                      My-Balance: {userInformation.balance} <Button size="small" variant="outlined" color="primary">Charge</Button> <br></br> 
                      Training since : {userInformation.started_training_year} <br></br> 
-                     About Me: {userInformation.aboutMe} 
+                     About Me:<div className="profileAboutMe">
+                              {userInformation.aboutMe} 
+                              </div>
+          
                      {!editFormVisibility ? <Button size="small" variant="outlined" color="primary" onClick={()=>clickEditFormOn(true)}>edit</Button> : <Button size="small" variant="outlined" onClick={()=>clickEditFormOn(false)} color="secondary" >Cancel</Button>}
                      
 
@@ -116,7 +119,7 @@ if(!userInformation) {
                 <Grid item xs={12} sm={6}>
                 <Card className={classes.card}>
                 <Typography gutterBottom component="h2" className="myProfileFont" >
-                      My Workout Plans
+                      My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/createPlan")}>Create New</Button>
                       </Typography>
                   {/* <CardMedia
                    className={classes.cardMedia}
