@@ -17,9 +17,9 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-
 import Box from '@material-ui/core/Box';
 
+import {getPlanCategoryFunction} from "../store/actions/planCategory"
 
 const useStyles = makeStyles((theme) => ({
     heroContent: {
@@ -71,6 +71,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreatePlan() {
   const classes = useStyles();
+    const dispatch = useDispatch();
+    const [loaded, setLoaded] = useState(false);
+    const list = useSelector(state=> state.category)
+
+//for form///////
+const [title, setTitle] = useState("");
+const [price, setPrice] = useState(0);
+const [category, setCategory] = useState('');
+const [description, setDescription] = useState('')
+
+
+
+const updateProperty = (callback) => (e) => {
+    callback(e.target.value);
+  };
+
+
+
+
+useEffect(()=> {
+    setLoaded(true)
+dispatch(getPlanCategoryFunction())
+},[])
+
+if(!loaded) {
+    return null;
+}
 
 return (
     <>
@@ -98,8 +125,8 @@ return (
                   id="title"
                   label="Title"
                   autoFocus
-                //   value={firstName}
-                //   onChange={updateProperty(setFirstName)}
+                  value={title}
+                  onChange={updateProperty(setTitle)}
               />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -112,15 +139,16 @@ return (
                   label="price in $"
                   autoFocus
                   type="number"
-                //   value={firstName}
-                //   onChange={updateProperty(setFirstName)}
+                  value={price}
+                  onChange={updateProperty(setPrice)}
               />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} align="center">
           <FormControl variant="outlined">
  <InputLabel>Category</InputLabel>
  <Select
   native
+  onChange={updateProperty(setCategory)}
 //   value={state.age}
 //   onChange={handleChange}
   label="category"
@@ -129,10 +157,15 @@ return (
 //     id: 'outlined-age-native-simple',
 //   }}
 >
-  <option aria-label="None" value="" />
-  <option value={10}>ddddddddddddddddddddddddddddddddd</option>
+  <option aria-label="None"
+ 
+  ></option>
+  {list.map((each,i)=> {
+     return <option key={i} aria-label="None">{each.categoryName}</option>
+  })}
+  {/* <option value={10}>ddddddddddddddddddddddddddddddddd</option>
   <option value={20}>Twenty</option>
-  <option value={30}>Thirty</option>
+  <option value={30}>Thirty</option> */}
 </Select>
 </FormControl>
           </Grid>
@@ -148,14 +181,23 @@ return (
                   id="description"
                   label="Description"
                   autoFocus
-                //   value={firstName}
-                //   onChange={updateProperty(setFirstName)}
+                  value={description}
+                  onChange={updateProperty(setDescription)}
               />
           </Grid>
 
 
           </Grid>
 
+          <Button
+                   fullWidth
+                   variant="contained"
+                   color="primary"
+                   className={classes.submit}
+                //    onSubmit={handleSubmit}
+                       >
+                           Next
+                           </Button>
           </form>
      </div>
     </main>    
