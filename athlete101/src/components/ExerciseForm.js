@@ -98,7 +98,7 @@ return (
   <div className="createExerciseDivContainer">
       <div className="chooseExerciseDiv">EXPLORE EXERCISE</div>
  {exerciseList.map((each,i ) => {
-     let gifClass =  `gif${each.url}`
+     let gifClass =  `gif${each.id}`
      let exerciseId = each.id
  return (
   <div key={i} className='eachGifContainer'>

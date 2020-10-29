@@ -87,7 +87,7 @@ const submitHandler = () => {
     const userId = window.localStorage.getItem("currentUserId")
     const data = {title, imageId:pickedExercise,userId,description}
     console.log(data)
-    dispatch(createExerciseFunction(data))
+    // dispatch(createExerciseFunction(data))
     // deleteButtonHandler()
 }
 useEffect(()=>{
