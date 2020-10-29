@@ -96,12 +96,12 @@ return (
  <CssBaseline>
  
   <div className="createExerciseDivContainer">
-      <div className="chooseExerciseDiv">CHOOSE EXERCISE</div>
+      <div className="chooseExerciseDiv">EXPLORE EXERCISE</div>
  {exerciseList.map((each,i ) => {
-     let gifClass =  `gif${each.Images[0].url}`
+     let gifClass =  `gif${each.url}`
      let exerciseId = each.id
  return (
-  <div key={each.title} className='eachGifContainer'>
+  <div key={i} className='eachGifContainer'>
  <div 
  className= {gifClass} >
 </div>

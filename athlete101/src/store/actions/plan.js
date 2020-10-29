@@ -38,9 +38,6 @@ export const createPlanFuction = (data) => async(dispatch) => {
         },
         body: JSON.stringify(newData)
     })
-    if (response.ok) {
-
-    } 
 }
 
 

@@ -21,7 +21,7 @@ import Box from '@material-ui/core/Box';
 import {getPlanCategoryFunction} from "../store/actions/planCategory"
 import {getExercisesFunction} from "../store/actions/exercise"
 import {deletePickedExerciseFunction} from '../store/actions/pickedExercise'
-
+import {createExerciseFunction} from "../store/actions/exercise"
 const useStyles = makeStyles((theme) => ({
     heroContent: {
         backgroundColor: theme.palette.background.paper,
@@ -74,10 +74,22 @@ export default function ExerciseDetail({pickedExercise, pickedExerciseName}) {
 
 const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail)
 const dispatch = useDispatch();
+const[description, setDescription] = useState('')
+const[title, setTitle] =useState("")
 const deleteButtonHandler = () => {
     dispatch(deletePickedExerciseFunction())
 }
-
+const updateProperty = (callback) => (e) => {
+    callback(e.target.value);
+  };
+  
+const submitHandler = () => {
+    const userId = window.localStorage.getItem("currentUserId")
+    const data = {title, imageId:pickedExercise,userId,description}
+    console.log(data)
+    dispatch(createExerciseFunction(data))
+    // deleteButtonHandler()
+}
 useEffect(()=>{
 
 },[pickedExerciseDetail])
@@ -85,30 +97,58 @@ useEffect(()=>{
 if (!pickedExerciseDetail) {
     return null
 }
-
-
 return (
    
      <>
  <CssBaseline>
   <div className="createExerciseDivContainer">
-      <div className="chooseExerciseDiv">CHOOSE EXERCISE</div>
-      <div className='eachGifContainer'>
+
+      <div className=' singleGifCOntainer'>
  <div 
+ 
  className={`gif${pickedExercise}`}>
 </div>
- <Typography align="center" variant ="subtitle2">{pickedExerciseName}</Typography>
+ <Typography align="center" variant ="subtitle2">Provide TItle and Description</Typography>
  <Box textAlign='center'>
+         <Button  
+    variant="contained"
+    color="Primary"
+    onClick={submitHandler}
+    >
+    Submit</Button>
      <Button  
     variant="outlined"
     color="Secondary"
     onClick={deleteButtonHandler}
     >
     Delete</Button>
+
  </Box>
- <Card>
-     
- </Card>
+ <TextField
+        className="formDescriptionExercise" 
+            name="description"
+            variant="outlined"
+            required
+            value={title}
+            id="description"
+            label="Exercise Title"
+            autoFocus
+            onChange={updateProperty(setTitle)}
+         />
+        <TextField
+        className="formDescriptionExercise" 
+            name="description"
+            variant="outlined"
+            required
+            multiline
+            rows={4}
+            value={description}
+            id="description"
+            label="Provide detail about this work out"
+            autoFocus
+            onChange={updateProperty(setDescription)}
+         />
+
 </div>
 </div>
 

@@ -388,3 +388,24 @@ body {
     margin-top:8em;
     padding: 5pt;
 }
+
+
+.formDescriptionExercise{
+width: 500pt;
+left: 200pt;
+bottom: 150pt
+}
+.singleGifCOntainer{
+    border: 5px solid lightgray;
+    margin-left: 15%;
+    margin-top: 1%;
+    height: 15em;
+    width: 15em;
+    border-radius: 10pt;
+}
+
+.formTitleExercise{
+    width: 500pt;
+    left: 200pt;
+    bottom: 150pt
+}

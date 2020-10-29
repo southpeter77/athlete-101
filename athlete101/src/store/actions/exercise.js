@@ -2,6 +2,8 @@ import {apiUrl} from "../../config"
 
 
 export const GET_EXERCISES = "GET_EXERCISES"
+export const CREATE_EXERCISE = "CREATE_EXERCISE"
+
 
 //////////////////////
 
@@ -10,14 +12,31 @@ export const getExercises = (list) => {
          type:GET_EXERCISES,
          list
         }
+}
 
+export const createExercise = (data) => {
+    return {
+        type:CREATE_EXERCISE,
+        data
+    }
 }
 
 
 ////////////////////////////////
 
+export const createExerciseFunction =(data) => async (dispatch) => {
+    const response = await fetch(`${apiUrl}/exercise/create`,{
+        method:"post",
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+    })
+}
+
+
+
+
 export const getExercisesFunction = () => async(dispatch) => {
-    const response =await fetch(`${apiUrl}/exercise/all`)
+    const response =await fetch(`${apiUrl}/images/all`)
     const data = await response.json()
     dispatch(getExercises(data))
 }
