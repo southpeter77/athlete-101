@@ -91,88 +91,12 @@ return (
     <>
 <CssBaseline>
  
-        <div className="createPlanDivContainer">
-        <Typography component="h1" variant="h5" align="center">
-                        Create Exercise
-         </Typography>
-         <Typography component="h1" variant="h6" align="left">
-                        Provide details of each exercises below.
-         </Typography>
-         <Typography component="h1" variant="subtitle2" align="left" color="secondary">
-                        You can update your own picture below.
-         </Typography>
-        <form className={classes.form} noValidate>
-        <Grid container spacing={2}>
-        <Grid item xs={12}>
-              <TextField
-                  name="title"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="title"
-                  label="Title"
-                  autoFocus
-
-              />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-              <TextField
-                  name="price"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="price"
-                  label="price in $"
-                  autoFocus
-                  type="number"
-
-              />
-          </Grid>
-          <Grid item xs={12} sm={6} align="center">
-          <FormControl variant="outlined">
- <InputLabel>Category</InputLabel>
- <Select
-  native
-//   onChange={updateProperty(setCategory)}
-//   value={state.age}
-//   onChange={handleChange}
-  label="category"
-//   inputProps={{
-//     name: 'age',
-//     id: 'outlined-age-native-simple',
-//   }}
->
-  <option aria-label="None"
- 
-  ></option>
-  {/* {list.map((each,i)=> {
-     return <option key={i} aria-label="None">{each.categoryName}</option>
-  })} */}
-  <option value={10}>ddddddddddddddddddddddddddddddddd</option>
-  <option value={20}>Twenty</option>
-  <option value={30}>Thirty</option>
-</Select>
-</FormControl>
-          </Grid>
-
-          <Grid item xs={12}>
-              <TextField
-                  name="description"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  multiline
-                  rows={4}
-                  id="description"
-                  label="Description"
-                  autoFocus
-
-              />
-          </Grid>
-
-
-          </Grid>
-          </form>
+        <div className="createExerciseDivContainer">
+{Array.from(Array(22), (e,i) => {
+    let name = `gif${i}`
+    return <div key={i} className="eachGif" className={name}></div>
+})}
+        <div className="gif1"></div>
      </div>
     
 </CssBaseline>

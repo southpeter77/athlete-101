@@ -190,8 +190,7 @@ return (
 
 
           </Grid>
-
-          <Button
+{title && price && category && description ? <Button
                    fullWidth
                    variant="contained"
                    color="primary"
@@ -199,11 +198,12 @@ return (
                     onClick={()=>setLoadNext(!loadNext)}
                        >
                            Next
-                           </Button>
+                           </Button> : null}
+         
           </form>
      </div>
 { loadNext ? <ExerciseForm></ExerciseForm>: null}
-
+<ExerciseForm></ExerciseForm>
     </main>    
 </CssBaseline>
 

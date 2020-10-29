@@ -183,3 +183,172 @@ body {
     border: 1px solid lightgray;
     border-radius: 10px;
 }
+
+.gif1{
+    background-image: url("./images/anglePullUp.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+}
+.gif2{
+    background-image: url("./images/closeGripRaise.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif3{
+    background-image: url("./images/dumbbelPress.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif4{
+    background-image: url("./images/farmersWalk.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif5{
+    background-image: url("./images/getSomeWater.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif6{
+    background-image: url("./images/innerChest.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif7{
+    background-image: url("./images/jumpingJacks.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif8{
+    background-image: url("./images/kickOneLegSquat.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif9{
+    background-image: url("./images/oneLegExtension.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif10{
+    background-image: url("./images/oneLegSquat.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif11{
+    background-image: url("./images/pullUps.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif12{
+    background-image: url("./images/rearDelt.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif13{
+    background-image: url("./images/shoulderSquat.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif14{
+    background-image: url("./images/sideLunges.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif15{
+    background-image: url("./images/singleLegSquat.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif16{
+    background-image: url("./images/standUpCableRow.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif17{
+    background-image: url("./images/standUpDumbbellRow.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif18{
+    background-image: url("./images/standUpRowExtension.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif19{
+    background-image: url("./images/standUpRun.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif20{
+    background-image: url("./images/standUpShoulderPress.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif21{
+    background-image: url("./images/steadyStandUpshoulderPress.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+.gif22{
+    background-image: url("./images/sumoSquatBicepCurl.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+
+.createExerciseDivContainer{
+    /* display:flex; */
+    width:80%;
+    height: 300pt;
+    margin-left: 10%;
+    margin-top: 5%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    position:   relative;
+    overflow: scroll;
+}
+.eachGif{
+
+}
