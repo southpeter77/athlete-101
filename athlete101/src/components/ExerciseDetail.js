@@ -69,26 +69,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function CreatePlan() {
-  const classes = useStyles();
-    const dispatch = useDispatch();
-    const [loaded, setLoaded] = useState(false);
-    const exerciseList = useSelector(state => state.exercise)
-//for form///////
-
-const ExerciseForm = (callback) => (e) => {
-    callback(e.target.value);
-
-  };
-
-useEffect(()=> {
-    dispatch(getExercisesFunction())
-setLoaded(true);
-},[])
-
-if(!loaded) {
-    return null
-}
+export default function ExerciseDetail() {
 
 return (
    
@@ -97,81 +78,10 @@ return (
  
   <div className="createExerciseDivContainer">
       <div className="chooseExerciseDiv">CHOOSE EXERCISE</div>
- {exerciseList.map((each,i ) => {
-     let gifClass =  `gif${each.Images[0].url}`
- return (
-  <div key={each.title} className='eachGifContainer'>
- <div 
- className= {gifClass} >
+ 
 </div>
- <Typography>{each.title}</Typography>
-  <Button    
-    variant="contained"
-    color="primary"
-    >
-    Add</Button>
-  <Button    
-    variant="outlined"
-    color="secondary"
-    >
-    Cancel</Button>
 
- </div>
-
- )
-})} </div>
  </CssBaseline>
     </>
 )
 }
-
-
-
-
-// const exerciseTitle=[
-// "Angle Pull Up",
-// "Close Grip Shoulder Raise",
-// "Dumbbell Press",
-// "Farmer's Walk",
-// "Inner Chest",
-// "Jumping Jacks",
-// "Kick and One Leg Squat",
-// "One Leg Extension",
-// "One Leg Squat",
-// "Pull Up",
-// "Rear Delt",
-// "Shoulder Squat",
-// "Side Lunges",
-// "Single Leg Squate",
-// "Stand Up Cable Row",
-// "Stand Up Dumbbell Row",
-// "Stand Up Row Extension",
-// "Steady Run", 
-// "Stand Up Shoulder Press",
-// "Stead Stand Up Shoulder Press",
-// "Sumo Squat Bicep Curl",
-// "Get Some Break"
-// ]
-
-// return (
-//     <>
-// <CssBaseline>
- 
-//  <div className="createExerciseDivContainer">
-// {exerciseTitle.map((e,i) => {
-// let name = `gif${i+1}`
-// return (
-//  <div className='eachGifContainer'>
-// <div key={i} className="eachGif" className={name}></div>
-// <Typography>{e}</Typography>
-//  <Button>Add</Button>
-//  <Button>Cancel</Button>
-// </div>
-
-// )
-// })}
-// </div>
-
-// </CssBaseline>
-//     </>
-// )

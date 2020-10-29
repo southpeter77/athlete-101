@@ -119,7 +119,7 @@ if(!userInformation) {
                 <Grid item xs={12} sm={6}>
                 <Card className={classes.card}>
                 <Typography gutterBottom component="h2" className="myProfileFont" >
-                      My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/createPlan")}>Create New</Button>
+                      My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/myprofile/createPlan")}>Create New</Button>
                       </Typography>
                   {/* <CardMedia
                    className={classes.cardMedia}

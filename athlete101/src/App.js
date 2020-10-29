@@ -41,7 +41,7 @@ const App = ()=>  {
       <Switch>
         <PrivateRoute exact path="/myProfile" component={Profile}></PrivateRoute>
         {/* <Route exact path="/myProfile" component={Profile}></Route> */}
-        <PrivateRoute exact path="/createplan" component={CreatePlan}></PrivateRoute>
+        <PrivateRoute exact path="/myProfile/createplan" component={CreatePlan}></PrivateRoute>
         <Route exact path="/signup" component={SignUp}></Route>
         <Route exact path="/" component={HomePage}></Route>
         <Route component={PageNotFound}></Route>
