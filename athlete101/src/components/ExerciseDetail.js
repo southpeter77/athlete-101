@@ -20,6 +20,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Box from '@material-ui/core/Box';
 import {getPlanCategoryFunction} from "../store/actions/planCategory"
 import {getExercisesFunction} from "../store/actions/exercise"
+import {deletePickedExerciseFunction} from '../store/actions/pickedExercise'
 
 const useStyles = makeStyles((theme) => ({
     heroContent: {
@@ -69,17 +70,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ExerciseDetail() {
+export default function ExerciseDetail({pickedExercise, pickedExerciseName}) {
+
+const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail)
+const dispatch = useDispatch();
+const deleteButtonHandler = () => {
+    dispatch(deletePickedExerciseFunction())
+}
+
+useEffect(()=>{
+
+},[pickedExerciseDetail])
+
+if (!pickedExerciseDetail) {
+    return null
+}
+
 
 return (
    
      <>
  <CssBaseline>
- 
   <div className="createExerciseDivContainer">
       <div className="chooseExerciseDiv">CHOOSE EXERCISE</div>
- 
+      <div className='eachGifContainer'>
+ <div 
+ className={`gif${pickedExercise}`}>
 </div>
+ <Typography align="center" variant ="subtitle2">{pickedExerciseName}</Typography>
+ <Box textAlign='center'>
+     <Button  
+    variant="outlined"
+    color="Secondary"
+    onClick={deleteButtonHandler}
+    >
+    Delete</Button>
+ </Box>
+ <Card>
+     
+ </Card>
+</div>
+</div>
+
 
  </CssBaseline>
     </>

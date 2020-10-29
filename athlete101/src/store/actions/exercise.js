@@ -13,6 +13,7 @@ export const getExercises = (list) => {
 
 }
 
+
 ////////////////////////////////
 
 export const getExercisesFunction = () => async(dispatch) => {
@@ -20,6 +21,10 @@ export const getExercisesFunction = () => async(dispatch) => {
     const data = await response.json()
     dispatch(getExercises(data))
 }
+
+
+
+
 //////////////////////////////
 
 ////////////////////////////////
@@ -28,7 +33,6 @@ export default function reducer (state=[], action) {
     switch(action.type) {
         case(GET_EXERCISES):
             return action.list
-
         default:
             return state;
     }

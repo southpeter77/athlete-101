@@ -20,7 +20,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Box from '@material-ui/core/Box';
 import {getPlanCategoryFunction} from "../store/actions/planCategory"
 import {getExercisesFunction} from "../store/actions/exercise"
-
+import ExerciseDetail from "./ExerciseDetail"
+import {pickedExerciseInFormFunction} from '../store/actions/pickedExercise'
 const useStyles = makeStyles((theme) => ({
     heroContent: {
         backgroundColor: theme.palette.background.paper,
@@ -73,25 +74,24 @@ export default function CreatePlan() {
   const classes = useStyles();
     const dispatch = useDispatch();
     const [loaded, setLoaded] = useState(false);
+    const [pickedExercise, setPickedExercise]= useState('')
     const exerciseList = useSelector(state => state.exercise)
-//for form///////
+    const[pickedExerciseName, setPickedExerciseName] =useState('')
+    const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail.pickedExercise)
 
-const ExerciseForm = (callback) => (e) => {
-    callback(e.target.value);
-
-  };
+    //for form///////
 
 useEffect(()=> {
     dispatch(getExercisesFunction())
 setLoaded(true);
-},[])
+
+},[pickedExerciseDetail])
 
 if(!loaded) {
     return null
 }
 
 return (
-   
      <>
  <CssBaseline>
  
@@ -99,79 +99,42 @@ return (
       <div className="chooseExerciseDiv">CHOOSE EXERCISE</div>
  {exerciseList.map((each,i ) => {
      let gifClass =  `gif${each.Images[0].url}`
+     let exerciseId = each.id
  return (
   <div key={each.title} className='eachGifContainer'>
  <div 
  className= {gifClass} >
 </div>
- <Typography>{each.title}</Typography>
-  <Button    
+ <Typography align="center" variant ="subtitle2">{each.title}</Typography>
+ <Box textAlign='center'>
+     <Button  
     variant="contained"
     color="primary"
+    onClick={
+        ()=>{setPickedExercise(exerciseId) 
+            setPickedExerciseName(each.title)
+            dispatch(pickedExerciseInFormFunction(exerciseId))
+        }
+    }
     >
     Add</Button>
-  <Button    
+ </Box>
+  
+  {/* <Button    
     variant="outlined"
     color="secondary"
     >
-    Cancel</Button>
+    Cancel</Button> */}
 
  </div>
 
  )
 })} </div>
  </CssBaseline>
+
+{pickedExerciseDetail ?<ExerciseDetail pickedExercise={pickedExercise} pickedExerciseName={pickedExerciseName}></ExerciseDetail> : null}
+
+
     </>
 )
 }
-
-
-
-
-// const exerciseTitle=[
-// "Angle Pull Up",
-// "Close Grip Shoulder Raise",
-// "Dumbbell Press",
-// "Farmer's Walk",
-// "Inner Chest",
-// "Jumping Jacks",
-// "Kick and One Leg Squat",
-// "One Leg Extension",
-// "One Leg Squat",
-// "Pull Up",
-// "Rear Delt",
-// "Shoulder Squat",
-// "Side Lunges",
-// "Single Leg Squate",
-// "Stand Up Cable Row",
-// "Stand Up Dumbbell Row",
-// "Stand Up Row Extension",
-// "Steady Run", 
-// "Stand Up Shoulder Press",
-// "Stead Stand Up Shoulder Press",
-// "Sumo Squat Bicep Curl",
-// "Get Some Break"
-// ]
-
-// return (
-//     <>
-// <CssBaseline>
- 
-//  <div className="createExerciseDivContainer">
-// {exerciseTitle.map((e,i) => {
-// let name = `gif${i+1}`
-// return (
-//  <div className='eachGifContainer'>
-// <div key={i} className="eachGif" className={name}></div>
-// <Typography>{e}</Typography>
-//  <Button>Add</Button>
-//  <Button>Cancel</Button>
-// </div>
-
-// )
-// })}
-// </div>
-
-// </CssBaseline>
-//     </>
-// )
