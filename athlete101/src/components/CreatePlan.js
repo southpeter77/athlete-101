@@ -89,7 +89,11 @@ const updateProperty = (callback) => (e) => {
     callback(e.target.value);
   };
 
-
+const onClickHandler = () => {
+    setLoadNext(!loadNext)
+    const payload = {title, price, category, description};
+    console.log(payload)
+}
 
 
 useEffect(()=> {
@@ -195,9 +199,9 @@ return (
                    variant="contained"
                    color="primary"
                    className={classes.submit}
-                    onClick={()=>setLoadNext(!loadNext)}
+                    onClick={onClickHandler}
                        >
-                           Next
+                          Confirm and Next
                            </Button> : null}
          
           </form>

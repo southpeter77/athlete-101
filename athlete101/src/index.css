@@ -354,10 +354,37 @@ body {
     height: 22em;
 
 }
+/* .eachGifContainer{
+    border: 5px solid lightgray;
+    margin: 2pt;
+    height: 15em;
+    width: 15em;
+    border-radius: 10pt;
+    
+} */
 .eachGifContainer{
     border: 5px solid lightgray;
     margin: 2pt;
     height: 15em;
     width: 15em;
     border-radius: 10pt;
+
+}
+/* .eachGifDiv
+{
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+} */
+.chooseExerciseDiv{
+    width:10em;
+    height:3em;
+    border: 2px solid rgb(63,81,181);
+    color:rgb(63,81,181); 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5pt;
+    margin-top:8em;
+    padding: 5pt;
 }

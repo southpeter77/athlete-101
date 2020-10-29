@@ -1,9 +1,9 @@
 import {apiUrl} from "../../config"
 import merge from "lodash/merge";
-
+import {TOKEN_KEY} from "./user"
 
 export const GRAB_ALL_PLANS = "GRAB_ALL_PLANS";
-
+export const CREATE_PLAN = "CREATE_PLAN"
 /////////////////////////////////////////////////
 
 export const grabAllPlans = (list) => {
@@ -13,7 +13,32 @@ export const grabAllPlans = (list) => {
     }
 }
 
+
+export const createPlan = (data) => {
+    return {
+        type:CREATE_PLAN,
+        data
+    }
+}
+
 /////////////////////////////////////////////////
+
+
+export const createPlanFuction = (data) => async(dispatch) => {
+    const token = window.localStorage.getItem(TOKEN_KEY)
+    const response = await fetch(`${apiUrl}/plan/create`,{
+        method: "post",
+        header: {
+            "Content-Type" : "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+
+
+
 export const grabTopList = () => async (dispatch) => {
         const response = await fetch(`${apiUrl}/plan/top`);
         if(response.ok) {
