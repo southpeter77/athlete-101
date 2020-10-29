@@ -18,10 +18,7 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Box from '@material-ui/core/Box';
-
 import {getPlanCategoryFunction} from "../store/actions/planCategory"
-import ExerciseForm from './ExerciseForm'
-
 
 const useStyles = makeStyles((theme) => ({
     heroContent: {
@@ -75,17 +72,9 @@ export default function CreatePlan() {
   const classes = useStyles();
     const dispatch = useDispatch();
     const [loaded, setLoaded] = useState(false);
-    const list = useSelector(state=> state.category)
-    const[loadNext, setLoadNext] = useState(false)
 //for form///////
-const [title, setTitle] = useState("");
-const [price, setPrice] = useState(0);
-const [category, setCategory] = useState('');
-const [description, setDescription] = useState('')
 
-
-
-const updateProperty = (callback) => (e) => {
+const ExerciseForm = (callback) => (e) => {
     callback(e.target.value);
   };
 
@@ -93,28 +82,24 @@ const updateProperty = (callback) => (e) => {
 
 
 useEffect(()=> {
-    setLoaded(true)
-dispatch(getPlanCategoryFunction())
+
 },[])
 
-if(!loaded) {
-    return null;
-}
+
 
 return (
     <>
-    <NavBar></NavBar>
 <CssBaseline>
-    <main>
+ 
         <div className="createPlanDivContainer">
         <Typography component="h1" variant="h5" align="center">
-                        CREATE YOUR OWN WORKOUT PLAN
+                        Create Exercise
          </Typography>
          <Typography component="h1" variant="h6" align="left">
-                        Provide strong and appealing information.
+                        Provide details of each exercises below.
          </Typography>
          <Typography component="h1" variant="subtitle2" align="left" color="secondary">
-                        Other user will look at this information before purchasing.
+                        You can update your own picture below.
          </Typography>
         <form className={classes.form} noValidate>
         <Grid container spacing={2}>
@@ -127,8 +112,7 @@ return (
                   id="title"
                   label="Title"
                   autoFocus
-                  value={title}
-                  onChange={updateProperty(setTitle)}
+
               />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -141,8 +125,7 @@ return (
                   label="price in $"
                   autoFocus
                   type="number"
-                  value={price}
-                  onChange={updateProperty(setPrice)}
+
               />
           </Grid>
           <Grid item xs={12} sm={6} align="center">
@@ -150,7 +133,7 @@ return (
  <InputLabel>Category</InputLabel>
  <Select
   native
-  onChange={updateProperty(setCategory)}
+//   onChange={updateProperty(setCategory)}
 //   value={state.age}
 //   onChange={handleChange}
   label="category"
@@ -162,12 +145,12 @@ return (
   <option aria-label="None"
  
   ></option>
-  {list.map((each,i)=> {
+  {/* {list.map((each,i)=> {
      return <option key={i} aria-label="None">{each.categoryName}</option>
-  })}
-  {/* <option value={10}>ddddddddddddddddddddddddddddddddd</option>
+  })} */}
+  <option value={10}>ddddddddddddddddddddddddddddddddd</option>
   <option value={20}>Twenty</option>
-  <option value={30}>Thirty</option> */}
+  <option value={30}>Thirty</option>
 </Select>
 </FormControl>
           </Grid>
@@ -183,58 +166,16 @@ return (
                   id="description"
                   label="Description"
                   autoFocus
-                  value={description}
-                  onChange={updateProperty(setDescription)}
+
               />
           </Grid>
 
 
           </Grid>
-
-          <Button
-                   fullWidth
-                   variant="contained"
-                   color="primary"
-                   className={classes.submit}
-                    onClick={()=>setLoadNext(!loadNext)}
-                       >
-                           Next
-                           </Button>
           </form>
      </div>
-{ loadNext ? <ExerciseForm></ExerciseForm>: null}
-
-    </main>    
+    
 </CssBaseline>
-
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Athlete 101 
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-        Create, Customize, Publish
-        </Typography>
-      </footer>
-
     </>
 )
 }
-
-// <FormControl variant="outlined">
-// <InputLabel>Category</InputLabel>
-// <Select
-//   native
-// //   value={state.age}
-// //   onChange={handleChange}
-//   label="Age"
-// //   inputProps={{
-// //     name: 'age',
-// //     id: 'outlined-age-native-simple',
-// //   }}
-// >
-//   <option aria-label="None" value="" />
-//   <option value={10}>Ten</option>
-//   <option value={20}>Twenty</option>
-//   <option value={30}>Thirty</option>
-// </Select>
-// </FormControl>
