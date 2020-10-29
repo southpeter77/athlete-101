@@ -211,126 +211,120 @@ body {
     width: 15em;
 
 }
-.gif5{
-    background-image: url("./images/getSomeWater.gif");
-    background-size: cover;
-    height: 15em;
-    width: 15em;
 
-}
-.gif6{
+.gif5{
     background-image: url("./images/innerChest.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif7{
+.gif6{
     background-image: url("./images/jumpingJacks.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif8{
+.gif7{
     background-image: url("./images/kickOneLegSquat.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif9{
+.gif8{
     background-image: url("./images/oneLegExtension.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif10{
+.gif9{
     background-image: url("./images/oneLegSquat.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif11{
+.gif10{
     background-image: url("./images/pullUps.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif12{
+.gif11{
     background-image: url("./images/rearDelt.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif13{
+.gif12{
     background-image: url("./images/shoulderSquat.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif14{
+.gif13{
     background-image: url("./images/sideLunges.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif15{
+.gif14{
     background-image: url("./images/singleLegSquat.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif16{
+.gif15{
     background-image: url("./images/standUpCableRow.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif17{
+.gif16{
     background-image: url("./images/standUpDumbbellRow.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif18{
+.gif17{
     background-image: url("./images/standUpRowExtension.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif19{
+.gif18{
     background-image: url("./images/standUpRun.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif20{
+.gif19{
     background-image: url("./images/standUpShoulderPress.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif21{
+.gif20{
     background-image: url("./images/steadyStandUpshoulderPress.gif");
     background-size: cover;
     height: 15em;
     width: 15em;
 
 }
-.gif22{
+.gif21{
     background-image: url("./images/sumoSquatBicepCurl.gif");
     background-size: cover;
     height: 15em;
@@ -338,8 +332,16 @@ body {
 
 }
 
+.gif22{
+    background-image: url("./images/getSomeWater.gif");
+    background-size: cover;
+    height: 15em;
+    width: 15em;
+
+}
+
 .createExerciseDivContainer{
-    /* display:flex; */
+    display:flex;
     width:80%;
     height: 300pt;
     margin-left: 10%;
@@ -347,8 +349,15 @@ body {
     border: 1px solid lightgray;
     border-radius: 10px;
     position:   relative;
-    overflow: scroll;
-}
-.eachGif{
+    overflow-y:hidden;
+    overflow-x: scroll;
+    height: 22em;
 
+}
+.eachGifContainer{
+    border: 5px solid lightgray;
+    margin: 2pt;
+    height: 15em;
+    width: 15em;
+    border-radius: 10pt;
 }

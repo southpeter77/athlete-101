@@ -78,27 +78,54 @@ const ExerciseForm = (callback) => (e) => {
     callback(e.target.value);
   };
 
-
-
-
 useEffect(()=> {
 
 },[])
 
-
+const exerciseTitle=[
+"Angle Pull Up",
+"Close Grip Shoulder Raise",
+"Dumbbell Press",
+"Farmer's Walk",
+"Inner Chest",
+"Jumping Jacks",
+"Kick and One Leg Squat",
+"One Leg Extension",
+"One Leg Squat",
+"Pull Up",
+"Rear Delt",
+"Shoulder Squat",
+"Side Lunges",
+"Single Leg Squate",
+"Stand Up Cable Row",
+"Stand Up Dumbbell Row",
+"Stand Up Row Extension",
+"Steady Run", 
+"Stand Up Shoulder Press",
+"Stead Stand Up Shoulder Press",
+"Sumo Squat Bicep Curl",
+"Get Some Break"
+]
 
 return (
     <>
 <CssBaseline>
  
-        <div className="createExerciseDivContainer">
-{Array.from(Array(22), (e,i) => {
-    let name = `gif${i}`
-    return <div key={i} className="eachGif" className={name}></div>
+ <div className="createExerciseDivContainer">
+{exerciseTitle.map((e,i) => {
+let name = `gif${i+1}`
+return (
+ <div className='eachGifContainer'>
+<div key={i} className="eachGif" className={name}></div>
+<Typography>{e}</Typography>
+ <Button>Add</Button>
+ <Button>Cancel</Button>
+</div>
+
+)
 })}
-        <div className="gif1"></div>
-     </div>
-    
+</div>
+
 </CssBaseline>
     </>
 )
