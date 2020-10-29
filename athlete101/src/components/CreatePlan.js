@@ -18,7 +18,7 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Box from '@material-ui/core/Box';
-
+import {createPlanFuction} from "../store/actions/plan"
 import {getPlanCategoryFunction} from "../store/actions/planCategory"
 import ExerciseForm from './ExerciseForm'
 
@@ -82,7 +82,7 @@ const [title, setTitle] = useState("");
 const [price, setPrice] = useState(0);
 const [category, setCategory] = useState('');
 const [description, setDescription] = useState('')
-
+const [confirmDisable, setConfirmDisable] = useState(false)
 
 
 const updateProperty = (callback) => (e) => {
@@ -93,6 +93,8 @@ const onClickHandler = () => {
     setLoadNext(!loadNext)
     const payload = {title, price, category, description};
     console.log(payload)
+    setConfirmDisable(true)
+    dispatch(createPlanFuction(payload))
 }
 
 
@@ -167,7 +169,7 @@ return (
  
   ></option>
   {list.map((each,i)=> {
-     return <option key={i} aria-label="None">{each.categoryName}</option>
+     return <option key={i} aria-label="None" value={each.id}>{each.categoryName}</option>
   })}
   {/* <option value={10}>ddddddddddddddddddddddddddddddddd</option>
   <option value={20}>Twenty</option>
@@ -194,7 +196,7 @@ return (
 
 
           </Grid>
-{title && price && category && description ? <Button
+{title && price && category && description && !confirmDisable ? <Button
                    fullWidth
                    variant="contained"
                    color="primary"
@@ -202,7 +204,14 @@ return (
                     onClick={onClickHandler}
                        >
                           Confirm and Next
-                           </Button> : null}
+                           </Button> : <Button
+                   fullWidth
+                   variant="contained"
+                   color="secondary"
+                   className={classes.submit}
+                       >
+                          Create Plan, Choose Exercies and Submit!
+                           </Button> }
          
           </form>
      </div>

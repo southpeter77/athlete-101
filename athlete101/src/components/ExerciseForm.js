@@ -96,24 +96,25 @@ return (
  <CssBaseline>
  
   <div className="createExerciseDivContainer">
-      <div className="chooseExerciseDiv">CHOOSE EXERCISES</div>
- {exerciseList.map((each) => {
+      <div className="chooseExerciseDiv">CHOOSE EXERCISE</div>
+ {exerciseList.map((each,i ) => {
      let gifClass =  `gif${each.Images[0].url}`
  return (
-  <div className='eachGifContainer'>
+  <div key={each.title} className='eachGifContainer'>
  <div 
- key={each.id} 
  className= {gifClass} >
 </div>
  <Typography>{each.title}</Typography>
   <Button    
     variant="contained"
     color="primary"
-    >Add</Button>
+    >
+    Add</Button>
   <Button    
     variant="outlined"
     color="secondary"
-    >Cancel</Button>
+    >
+    Cancel</Button>
 
  </div>
 

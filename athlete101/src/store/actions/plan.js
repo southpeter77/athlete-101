@@ -26,14 +26,21 @@ export const createPlan = (data) => {
 
 export const createPlanFuction = (data) => async(dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY)
+    const userId = window.localStorage.getItem("currentUserId")
+    const newData = {...data, userId}
+ 
     const response = await fetch(`${apiUrl}/plan/create`,{
         method: "post",
-        header: {
+        headers: {
             "Content-Type" : "application/json",
-            Authorization: `Bearer ${token}`
+
+            // Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(newData)
     })
+    if (response.ok) {
+
+    } 
 }
 
 
