@@ -109,7 +109,7 @@ return (
  <Box textAlign='center'>
      <Button  
     variant="contained"
-    color="primary"
+    style={{backgroundColor:"lightgray"}}
     onClick={
         ()=>{setPickedExercise(exerciseId) 
             setPickedExerciseName(each.title)

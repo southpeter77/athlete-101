@@ -13,12 +13,11 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {grabTopList} from "../store/actions/plan"
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
 
 
 
 const useStyles = makeStyles((theme) => ({
-
 
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -75,6 +74,7 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
 
   return (
     <React.Fragment>
+   
       <CssBaseline />
       <main>
         {/* Hero unit */}
@@ -148,6 +148,7 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
       </footer>
       {/* End footer */}
     </React.Fragment>
+    
   );
 }
 

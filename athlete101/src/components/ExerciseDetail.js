@@ -117,6 +117,7 @@ return (
     variant="contained"
     color="Primary"
     onClick={submitHandler}
+    style={{backgroundColor:"lightgray", color:"black"}}
     >
     Submit</Button>
      <Button  

@@ -34,8 +34,13 @@ export const createPlan = (data) => {
 export const grabOnePlanFunction = (id) => async(dispatch) => {
     const response = await fetch (`${apiUrl}/plan/${id}`);
     const plan = await response.json();
+    // console.log(plan)
     dispatch(grabOnePlan(plan))
 }
+//plan's owner info: name, year, about me.
+//category name
+//exercise associating the plan with pictures.
+
 
 
 

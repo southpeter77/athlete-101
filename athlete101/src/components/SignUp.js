@@ -234,7 +234,8 @@ if(token) {
                    type="submit"
                    fullWidth
                    variant="contained"
-                   color="primary"
+                //    color="primary"
+                style={{backgroundcolor:"lightgray"}}
                    className={classes.submit}
                 //    onSubmit={handleSubmit}
                        >
@@ -242,7 +243,7 @@ if(token) {
                            </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href="/login" variant="body2">
+                                <Link href="/login" variant="body2" color="secondary">
                                     Already have an account? Sign in
                                   </Link>
                             </Grid>

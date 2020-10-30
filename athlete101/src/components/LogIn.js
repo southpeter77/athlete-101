@@ -85,7 +85,8 @@ const Login = () => {
         <Button
                    type="submit"
                    variant="contained"
-                   color="primary"
+                //    color="primary"
+                style={{backgroundColor:"lightgray"}}
                    className = "loginButton"
                        >Log In</Button>
              <div className="loginQuote"> Back to Grinding!</div>           

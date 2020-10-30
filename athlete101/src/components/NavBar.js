@@ -42,12 +42,12 @@ if (!loaded) {
      
     <CssBaseline />
     <AppBar position="relative">
-      <Toolbar className ="ToolBarAligning">
+      <Toolbar className ="ToolBarAligning" style={{backgroundColor:"black"}}>
         <Typography  variant="h4" color="inherit" noWrap>
         ATHLETE <FitnessCenterIcon></FitnessCenterIcon> 101
         </Typography>    
        <IconButton onClick={()=> window.location.replace("/")}>
-         <HomeIcon style={{ fontSize: 40 }} ></HomeIcon>
+         <HomeIcon style={{ fontSize: 40 }} style={{color:"white"}}></HomeIcon>
          </IconButton> 
         {!token ?
         (<>
