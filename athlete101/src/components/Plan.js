@@ -107,24 +107,27 @@ const click = () => {
  {viewPlan.exercises.map((each,i ) => {
      let gifClass =  `gif${each.imageId}`
  return (
+   
     <div key={i} className="eachExercise">
+      
   <div key={i} className='eachGifContainer'>
+    
  <div 
  className= {gifClass} >
 </div>
+</div>
 <div className="exerciseDescriptionAndTitle">
- <Typography align="center" variant ="h4">
+<Typography align="left" variant ="h6">
 Title: {each.title}
  </Typography>
- </div>
-<div>
- <Typography align="center" variant ="subtitle2">
-{each.description}
+  <Typography align="left" variant ="subtitle">
+Description: {each.description}
  </Typography>
- </div>
- <Box textAlign='center'>
- </Box>
 </div>
+
+ 
+
+
 </div>
  ) 
 
