@@ -13,8 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {grabTopList} from "../store/actions/plan"
-
-
+import TextField from '@material-ui/core/TextField';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -77,33 +76,24 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
    
       <CssBaseline />
       <main>
-        {/* Hero unit */}
-        <div className={classes.heroContent} >
-          <Container maxWidth="sm">
+<div className="mainPagePictureDiv"></div>
+        <div className={classes.heroContent}>
+          <Container maxWidth="lg" style={{backgroundColor:"	rgb(232,232,232)"}}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
              Train with the Best
             </Typography>
+   
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Create, Customize, Publish your Workout Program!
               Just a click away from your next fitness goal
             </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" >
-                    click to view all category
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" >
-                    Explore all the plan and lead to search button
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
+
           </Container>
         </div>
   {/* show the top plans right here//////////////////////*/}
+  <Typography component="h3" variant="h4" align="center" color="textSecondary">
+             Most popular
+            </Typography>
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing ={4}>
   {Object.values(topPlanList).map((each, i)=>{

@@ -486,3 +486,21 @@ bottom: 150pt
     margin: 0.5%
     /* margin-left: 120%; */
 }
+
+
+
+
+
+.homePageHero{
+   background-image: url("./images/back.gif");
+background-size: cover; 
+}
+
+.mainPagePictureDiv{
+    width: 100%;
+    /* border: 1px solid black; */
+    height: 20em;
+    background-image: url("./images/back.gif");
+
+
+}

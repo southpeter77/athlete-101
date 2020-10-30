@@ -82,7 +82,7 @@ if(!userInformation) {
         <div className={classes.heroContent}>
           <Container className={classes.cardGrid} maxWidth="md">
           <div>picture here from user's profile information</div>
-            <Typography component="h1" variant="h3" align="right" color="primary" gutterBottom>
+            <Typography component="h1" variant="h3" align="right" color="textSecondary" gutterBottom>
                 Hello {userInformation.firstName.toUpperCase()}!
             </Typography>
             <Typography component="h1" variant="subtitle1" align="center" gutterBottom>
