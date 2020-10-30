@@ -11,7 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {grabTopList} from "../store/actions/plan"
-
+import {TOKEN_KEY} from "../store/actions/user"
+import{createOrderFunction} from "../store/actions/order"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -44,24 +45,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PlanBrowser = ({ needLogin, loadToken })=> {
+const PlanBrowser = ({loadToken })=> {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [loaded, setLoaded] = useState(false);
-  const token = useSelector((state) => state.user.token)
-  const currentUser = useSelector((state) => state.user.currentUser)
+  // const [loaded, setLoaded] = useState(false);
   const topPlanList = useSelector((state) => state.plan)
+  const token = window.localStorage.getItem(TOKEN_KEY)
 
   useEffect(() => {
     dispatch(grabTopList())
-  setLoaded(true);
+  // setLoaded(true);
   loadToken()
 },[])
     const handleClick =() => {
         dispatch(logout());
     }
 
+    const followButton = (currentPlanId) => {
+// console.log(currentPlanId)
+        dispatch(createOrderFunction(currentPlanId))
+    }
 
 
   if (!topPlanList) {
@@ -95,7 +99,7 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
         <Grid container spacing ={4}>
   {Object.values(topPlanList).map((each, i)=>{
     return (
-      <Grid item key={i} xs={12} sm={6} md={4}>
+      <Grid item key={i} xs={12} sm={6}>
           <Card className={classes.card}>
             {/* <CardMedia 
             className ={classes.cardMedia} 
@@ -120,10 +124,8 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
         >
                        View
                       </Button>
-                      <Button size="large" color="primary"  
-        >
-                       Follow
-                      </Button>
+                      {token ? <Button size="large" color="primary" onClick={()=>followButton(each.id)}>Follow</Button> : null}
+                      
             </CardContent>
 
           </Card>

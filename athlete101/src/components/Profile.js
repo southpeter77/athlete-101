@@ -14,7 +14,7 @@ import CardActions from '@material-ui/core/CardActions';
 import EditProfileAboutMe from "./EditProfileAboutMe"
 import {showEditForm} from "../store/actions/profile"
 import {grabMyPlansFunction} from "../store/actions/plan"
-
+import {grabAllOrders} from "../store/actions/order"
 const useStyles = makeStyles((theme) => ({
 
     heroContent: {
@@ -62,6 +62,11 @@ const Profile = () => {
       dispatch(showEditForm(data))
     }
 
+    const getOrder =() => {
+      dispatch(grabAllOrders(myId))
+    }
+
+
     useEffect(()=> {
 
     dispatch(loadCurrentUser())
@@ -74,6 +79,8 @@ if(!userInformation) {
 }
     return (
         <>     
+  <button onClick={()=>getOrder()}>sssssssssssss</button>
+
   {/* <button onClick={()=>console.log(myPlans)}>sssssssssssss</button> */}
         <NavBar/>
         <CssBaseline />
@@ -105,7 +112,7 @@ if(!userInformation) {
                      {userInformation.trainer ? "Trainer": "Trainee"}: 
                      {userInformation.firstName} {userInformation.lastName} <br></br> 
                      Email: {userInformation.email} <br></br>
-                     My-Balance: {userInformation.balance} <Button size="small" variant="outlined" color="primary">Charge</Button> <br></br> 
+                     {/* My-Balance: {userInformation.balance} <Button size="small" variant="outlined" color="primary">Charge</Button> <br></br>  */}
                      Training since : {userInformation.started_training_year} <br></br> 
                      About Me:<div className="profileAboutMe">
                               {userInformation.aboutMe} 
@@ -148,42 +155,40 @@ if(!userInformation) {
 
                
 
-
-
-
-
-
-
-
-
-            <Grid item xs={12} sm={6}>
-            <Card className={classes.card}>
-                  {/* <CardMedia
-                   className={classes.cardMedia}
-                    image=
-                     title="
-                 /> */}
-       <Typography gutterBottom component="h2" className="myProfileFont"  >
-                      Purchased Plans
+{editFormVisibility ?<EditProfileAboutMe/> : null}  
+                <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
+                      Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/")}>Explore</Button>
                       </Typography>
-                 <CardContent className={classes.cardContent}>
-                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+    {Object.values(myPlans).map((each, i)=>
+      
+       <Grid key={i+1} item xs={12}>
+                <Card key={i+10} className={classes.card}>
+                 <CardContent key={i+100} className={classes.cardContent}>
+                     <Typography key={i+1000}  gutterBottom variant="h5" component="h2" >
+                      {each.title}
                       </Typography>
-                      <Typography>
-                        This is a media card. You can use this section to describe the content.
+                      <Typography key={i+10000} >
+                        {each.description}
                       </Typography>
                     </CardContent>
                   <CardActions>
-                      <Button size="small" color="primary">
+                      <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
                        View
                       </Button>
-                      <Button size="small" color="primary">
-                      Edit
-                      </Button>
                  </CardActions>
-                  </Card>
+                  </Card>      
             </Grid> 
+
+      )}
+
+
+
+
+
+
+
+
+
             </Grid>
          
           </Container>

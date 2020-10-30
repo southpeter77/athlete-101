@@ -18,11 +18,13 @@ const Reviews = ({planId, currentUserId}) => {
     const submitHandler =() => {
         const payload = {rating, comment,planId, currentUserId}
         setLoadReview(!loadReview)
+        setRating(0);
+        setComment('')
         dispatch(createReviewFunction(payload))
     }
     useEffect(()=> {
         dispatch(grabAllReviewFunction(planId))
-        console.log(reviews)
+
     },[loadReview])
 
 

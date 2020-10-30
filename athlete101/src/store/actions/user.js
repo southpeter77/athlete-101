@@ -89,7 +89,7 @@ dispatch(loginErrorArray(arrayOfError))
 }
 ////////////////////////////////////////////
 export const logout = () => async (dispatch, getState) => {
-    const {user:{token}} = getState();
+
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.removeItem("currentUserId")
     dispatch(removeToken());
