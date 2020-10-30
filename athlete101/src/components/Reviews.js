@@ -14,14 +14,16 @@ const Reviews = ({planId, currentUserId}) => {
     const dispatch = useDispatch()
     const error = useSelector(state => state.review.error)
     const reviews = useSelector(state => state.review.reviews)
-
+    const [loadReview , setLoadReview] = useState(false)
     const submitHandler =() => {
         const payload = {rating, comment,planId, currentUserId}
+        setLoadReview(!loadReview)
         dispatch(createReviewFunction(payload))
     }
     useEffect(()=> {
         dispatch(grabAllReviewFunction(planId))
-    },[])
+        console.log(reviews)
+    },[loadReview])
 
 
     const updateProperty = (callback) => (e) => {
@@ -35,8 +37,16 @@ const Reviews = ({planId, currentUserId}) => {
         <div className="reviewContainer">
 <Typography gutterBottom variant="h6"align="left" >Reviews</Typography>
 {reviews ? reviews.map(each=>
-<div className='reviewsCommentDiv'>{each.comment}
-
+<div className='reviewsCommentDiv'>
+    <Typography variant="subtitle2">
+    By: {each.User.firstName}
+    </Typography>
+<Typography variant="subtitle2">
+    Rating: {each.rating}
+    </Typography>
+  <Typography variant="subtitle">
+      {each.comment}
+      </Typography>  
 </div>
 
 ) 
@@ -60,10 +70,6 @@ const Reviews = ({planId, currentUserId}) => {
   <option aria-label="None" value={3}>3</option>
   <option aria-label="None" value={2}>2</option>
   <option aria-label="None" value={1}>1</option>
-
-  {/* <option value={10}>ddddddddddddddddddddddddddddddddd</option>
-  <option value={20}>Twenty</option>
-  <option value={30}>Thirty</option> */}
 </Select>
 <TextField
             name="review"
