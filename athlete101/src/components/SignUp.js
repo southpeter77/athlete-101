@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {Redirect} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-// import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-// import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -20,7 +13,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Box from '@material-ui/core/Box';
 import {signUp} from "../store/actions/user"
 import NavBar from "./NavBar"
-
+import Container from '@material-ui/core/Container';
+import Login from "./LogIn"
 
 const useStyles = makeStyles((theme) => ({
     heroContent: {
@@ -83,6 +77,7 @@ const SignUp = ({ needLogin, loadToken }) => {
     const[started_training_year, setStarted_training_year] = useState('');
     const[balance, setBalance] = useState('');
     const errors = useSelector(state=> state.user.signInError)
+    const [showLogin, setShowLogin] = useState(false)
     
   const updateProperty = (callback) => (e) => {
     callback(e.target.value);
@@ -101,6 +96,8 @@ const handleSubmit = async (e) => {
     dispatch(signUp(payload))
 }
 
+
+
 const token = useSelector(state => state.user.token)
 useEffect(() => {
 
@@ -111,16 +108,18 @@ if(token) {
 }
     return (
         <React.Fragment>
-            <CssBaseline />
+         <CssBaseline />
     <NavBar></NavBar>
+ <Container maxWidth="xlg" style={{backgroundColor:"gray"}}>
+            <Typography component="h4" variant="h4" align="center" style={{color:"white", fontWeight:"bold"}} gutterBottom>
+             Sign Up to Start!
+            </Typography>
+          </Container>
+
             <main className="mainContainer">
                       <div className="pictureNextToForm"></div>  
                    <div className="formContainer">  
-                <div className={classes.paper}>
-                    <Typography component="h1" variant="h5">
-                        Sign up
-         </Typography>
-   
+                <div className={classes.paper}>   
                 {errors ? <ul className="errorListSignUp">
             {errors.map((each, i) => <li key={i} >{each}</li>)}
         </ul> :
@@ -243,9 +242,11 @@ if(token) {
                            </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href="/login" variant="body2" color="secondary">
-                                    Already have an account? Sign in
-                                  </Link>
+                                <Button variant="body2" color="secondary" onClick={()=>setShowLogin(!showLogin)}>
+                                    Already have an account? Sign in here
+                                  </Button>
+                                  {showLogin ? <Login></Login> : null}
+                                  
                             </Grid>
                         </Grid>
                     </form>

@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import HomePage from "./components/HomePage"
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import SignUp from "./components/SignUp"
@@ -27,7 +27,7 @@ if(!loaded) {
     return <Component></Component>
   }
 else {
-  return <Redirect to="/"></Redirect>
+  return <Redirect to="/signup"></Redirect>
 }
 
 
@@ -41,11 +41,10 @@ const App = ()=>  {
     <BrowserRouter>
       <Switch>
         <PrivateRoute exact path="/myProfile" component={Profile}></PrivateRoute>
-        {/* <Route exact path="/myProfile" component={Profile}></Route> */}
         <PrivateRoute exact path="/myProfile/createplan" component={CreatePlan}></PrivateRoute>
         <Route exact path="/signup" component={SignUp}></Route>
         <Route exact path="/" component={HomePage}></Route>
-        <Route exact path="/plan/:id" component={Plan}></Route>
+        <PrivateRoute exact path="/plan/:id" component={Plan}></PrivateRoute>
         <Route component={PageNotFound}></Route>
       </Switch>
     </BrowserRouter>

@@ -3,10 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import CancelPresentationRoundedIcon from '@material-ui/icons/CancelPresentationRounded';
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from "react-redux";
-import {login} from "../store/actions/user"
 import {editProfielAboutMeFunction} from "../store/actions/profile"
 
 

@@ -6,21 +6,26 @@ import { Provider } from 'react-redux';
 import configureStore from "./store/configureStore"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
-const theme = createMuiTheme({
-  palette: {
-     primary: {
-        main: "#ff8f00" // This is an orange looking color
-               },
-     secondary: {
-        main: "#ffcc80" //Another orange-ish color
-                }
-           }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//      primary: {
+//         main: "#ff8f00" // This is an orange looking color
+//                },
+//      secondary: {
+//         main: "#ffcc80" //Another orange-ish color
+//                 }
+//            }
+// });
+
+// const initial = {user:{token:{}, plan:[{}]}}
 
 const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode theme={theme}>
+  <React.StrictMode 
+  // theme={theme}
+  
+  >
     <ThemeProvider>
     <Provider store ={store}>
        <App />
