@@ -6,6 +6,8 @@ import profile from "./actions/profile"
 import category from "./actions/planCategory"
 import exercise from "./actions/exercise"
 import exerciseFormDetail from "./actions/pickedExercise"
+import review from "./actions/review"
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
@@ -15,7 +17,8 @@ const reducer = combineReducers ({
     profile,
     category,
     exercise,
-    exerciseFormDetail
+    exerciseFormDetail,
+    review
 })
 
 const configureStore = (initialState) => {

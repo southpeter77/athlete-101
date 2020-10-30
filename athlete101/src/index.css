@@ -430,7 +430,7 @@ bottom: 150pt
     padding:10pt;
     border: 3px solid black;
     width: 20%;
-    position: sticky;
+    /* position: sticky; */
     top:10%;
     box-shadow: 2px 5px 7px rgb(66, 66, 66);
 }
@@ -505,9 +505,19 @@ background-size: cover;
 
 }
 
-
-
-
 .loginFormInSignUp{
     margin-top: 500pt;
+}
+
+
+.reviewContainer{
+    margin:50pt;
+    background-color: rgb(228, 226, 226);
+    border-radius: 10pt;
+    padding:10pt;
+    border: 3px solid black;
+    width: 20%;
+    position: sticky;
+    top:30%;
+    box-shadow: 2px 5px 7px rgb(66, 66, 66);
 }

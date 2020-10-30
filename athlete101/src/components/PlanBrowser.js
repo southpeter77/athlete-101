@@ -120,6 +120,10 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
         >
                        View
                       </Button>
+                      <Button size="large" color="primary"  
+        >
+                       Follow
+                      </Button>
             </CardContent>
 
           </Card>

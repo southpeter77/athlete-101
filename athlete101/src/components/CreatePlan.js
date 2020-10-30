@@ -76,7 +76,6 @@ const [category, setCategory] = useState('');
 const [description, setDescription] = useState('')
 const [confirmDisable, setConfirmDisable] = useState(false)
 
-
 const updateProperty = (callback) => (e) => {
     callback(e.target.value);
   };

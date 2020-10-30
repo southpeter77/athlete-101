@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import NavBar from "./NavBar"
 import { useParams } from 'react-router-dom';
 import {grabOnePlanFunction} from '../store/actions/plan'
+import Reviews from "./Reviews"
 
 const Plan = ()=> {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const Plan = ()=> {
   const {id} = useParams()
   const planId =  Number.parseInt(id);
   const token = window.localStorage.getItem('TOKEN_KEY')
+  const currentUserId = window.localStorage.getItem("currentUserId")
 useEffect(()=> {
 
   dispatch(grabOnePlanFunction(planId))
@@ -44,9 +45,11 @@ const click = () => {
   <Typography gutterBottom variant="subtitle2"align="left">Last Name: {viewPlan.planOwnerLastName}</Typography>
   <Typography variant="subtitle2"align="left">About {viewPlan.planOwnerFirstName.toUpperCase()}: {viewPlan.planOwnerAboutMe}</Typography>
   <Typography gutterBottom variant="subtitle2"align="left">Training Since: {viewPlan.planOwnerYear}</Typography>
-  <Typography gutterBottom variant="subtitle2"align="left">Workout Category: {viewPlan.planOwnerAboutMe}</Typography>
+  <Typography gutterBottom variant="subtitle2"align="left">Workout Category: {viewPlan.planCategory}</Typography>
   <Button size="small" style={{color:"black", backgroundColor:"gray"}}>View Profile</Button>
 </div>
+
+<Reviews planId={planId} currentUserId={currentUserId}></Reviews>
 
  <div className="exerciseInPlanContainer">
 <div className="topPlanTitle">

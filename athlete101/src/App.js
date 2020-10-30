@@ -9,42 +9,52 @@ import {loadToken} from "./store/actions/user"
 import CreatePlan from "./components/CreatePlan"
 import Plan from "./components/Plan"
 
-const PrivateRoute = ({component:Component}) => {
-  const token = useSelector(state => state.user.token)
-const [loaded, setLoaded] = useState(false);
-const dispatch = useDispatch();
+export const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      rest.needLogin === true ? (
+        <Redirect to="/signup" />
+      ) : (
+        <Component {...props} />
+      )
+    }
+  />
+);
 
-useEffect(() => {
-  dispatch(loadToken())
-  setLoaded(true)
-})
-if(!loaded) {
-  return null
-}
+export const ProtectedRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      rest.needLogin !== true ? <Redirect to="/" /> : <Component {...props} />
+    }
+  />
+);
 
 
-  if (token) {
-    return <Component></Component>
+
+const App = ({ needLogin, loadToken })=>  {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+    loadToken();
+  }, []);
+
+  if (!loaded) {
+    return null;
   }
-else {
-  return <Redirect to="/signup"></Redirect>
-}
-
-
-}
-
-
-const App = ()=>  {
-
   return (
     <>
     <BrowserRouter>
       <Switch>
-        <PrivateRoute exact path="/myProfile" component={Profile}></PrivateRoute>
-        <PrivateRoute exact path="/myProfile/createplan" component={CreatePlan}></PrivateRoute>
+        <PrivateRoute needLogin={needLogin} exact path="/myProfile" component={Profile}></PrivateRoute>
+        <PrivateRoute needLogin={needLogin} exact path="/myProfile/createplan" component={CreatePlan}></PrivateRoute>
+        <PrivateRoute needLogin={needLogin} exact path="/plan/:id" component={Plan}></PrivateRoute>
+
         <Route exact path="/signup" component={SignUp}></Route>
         <Route exact path="/" component={HomePage}></Route>
-        <PrivateRoute exact path="/plan/:id" component={Plan}></PrivateRoute>
+        {/* <PrivateRoute exact path="/plan/:id" component={Plan}></PrivateRoute> */}
         <Route component={PageNotFound}></Route>
       </Switch>
     </BrowserRouter>
@@ -53,5 +63,10 @@ const App = ()=>  {
   )
 }
 
+const AppContainer = () => {
+  const needLogin = useSelector((state) => !state.user.token);
+  const dispatch = useDispatch();
+  return <App needLogin={needLogin} loadToken={() => dispatch(loadToken())} />;
+};
 
-export default App;
+export default AppContainer;
