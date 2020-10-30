@@ -13,12 +13,16 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {grabTopList} from "../store/actions/plan"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
+
 
 const useStyles = makeStyles((theme) => ({
 
+
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    // padding: theme.spacing(8, 0, 6),
     
   },
   heroButtons: {
@@ -86,12 +90,12 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
+                  <Button variant="contained" >
                     click to view all category
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
+                  <Button variant="outlined" >
                     Explore all the plan and lead to search button
                   </Button>
                 </Grid>

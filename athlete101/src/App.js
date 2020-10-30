@@ -7,6 +7,7 @@ import PageNotFound from "./components/PageNotFound"
 import { useSelector, useDispatch } from 'react-redux';
 import {loadToken} from "./store/actions/user"
 import CreatePlan from "./components/CreatePlan"
+import Plan from "./components/Plan"
 
 const PrivateRoute = ({component:Component}) => {
   const token = useSelector(state => state.user.token)
@@ -44,6 +45,7 @@ const App = ()=>  {
         <PrivateRoute exact path="/myProfile/createplan" component={CreatePlan}></PrivateRoute>
         <Route exact path="/signup" component={SignUp}></Route>
         <Route exact path="/" component={HomePage}></Route>
+        <Route exact path="/plan/:id" component={Plan}></Route>
         <Route component={PageNotFound}></Route>
       </Switch>
     </BrowserRouter>

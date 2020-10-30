@@ -4,12 +4,21 @@ import {TOKEN_KEY} from "./user"
 
 export const GRAB_ALL_PLANS = "GRAB_ALL_PLANS";
 export const CREATE_PLAN = "CREATE_PLAN"
+export const CURRENT_PLAN_ID = "CurrentPlanId"
+export const GRAB_ONE_PLAN = "GRAB_ONE_PLAN"
 /////////////////////////////////////////////////
 
 export const grabAllPlans = (list) => {
     return {
         type: GRAB_ALL_PLANS,
         list
+    }
+}
+
+export const grabOnePlan = (viewPlan) => {
+    return {
+        type: GRAB_ONE_PLAN,
+        viewPlan
     }
 }
 
@@ -22,6 +31,13 @@ export const createPlan = (data) => {
 }
 
 /////////////////////////////////////////////////
+export const grabOnePlanFunction = (id) => async(dispatch) => {
+    const response = await fetch (`${apiUrl}/plan/${id}`);
+    const plan = await response.json();
+    dispatch(grabOnePlan(plan))
+}
+
+
 
 
 export const createPlanFuction = (data) => async(dispatch) => {
@@ -34,10 +50,14 @@ export const createPlanFuction = (data) => async(dispatch) => {
         headers: {
             "Content-Type" : "application/json",
 
-            // Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(newData)
     })
+    if(response.ok) {
+        const {id} = await response.json()
+       window.localStorage.setItem(CURRENT_PLAN_ID, id)
+    }
 }
 
 
@@ -57,12 +77,17 @@ export const grabTopList = () => async (dispatch) => {
 export default function reducer (state ={}, action) {
     Object.freeze(state);
     switch(action.type) {
-        case GRAB_ALL_PLANS: {
+        case GRAB_ALL_PLANS: 
             // return {...state, topPlanList:action.list}
             const list= action.list.map((each) => ({[each.id]: each}));
             return merge({},state,...list)
+        
+        case GRAB_ONE_PLAN:
 
-        }
+            return {...state, viewPlan:action.viewPlan}
+        
+
+        
 
         default: return state
     }

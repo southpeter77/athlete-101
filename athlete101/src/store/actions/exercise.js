@@ -30,6 +30,9 @@ export const createExerciseFunction =(data) => async (dispatch) => {
         headers:{"Content-Type": "application/json"},
         body: JSON.stringify(data)
     })
+    if(response.ok) {
+        console.log(response)
+    }
 }
 
 

@@ -22,6 +22,9 @@ import {getPlanCategoryFunction} from "../store/actions/planCategory"
 import {getExercisesFunction} from "../store/actions/exercise"
 import {deletePickedExerciseFunction} from '../store/actions/pickedExercise'
 import {createExerciseFunction} from "../store/actions/exercise"
+import {CURRENT_PLAN_ID} from "../store/actions/plan"
+
+
 const useStyles = makeStyles((theme) => ({
     heroContent: {
         backgroundColor: theme.palette.background.paper,
@@ -85,10 +88,10 @@ const updateProperty = (callback) => (e) => {
   
 const submitHandler = () => {
     const userId = window.localStorage.getItem("currentUserId")
-    const data = {title, imageId:pickedExercise,userId,description}
-    console.log(data)
-    // dispatch(createExerciseFunction(data))
-    // deleteButtonHandler()
+    const currentPlanId = window.localStorage.getItem(CURRENT_PLAN_ID)
+    const data = {title, imageId:pickedExercise,userId,description,currentPlanId}
+    dispatch(createExerciseFunction(data))
+    deleteButtonHandler()
 }
 useEffect(()=>{
 

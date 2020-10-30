@@ -92,7 +92,6 @@ const updateProperty = (callback) => (e) => {
 const onClickHandler = () => {
     setLoadNext(!loadNext)
     const payload = {title, price, category, description};
-    console.log(payload)
     setConfirmDisable(true)
     dispatch(createPlanFuction(payload))
 }
