@@ -56,7 +56,8 @@ const Profile = () => {
     const myId = window.localStorage.getItem("currentUserId");
     const [clickedEdit , setclickedEdit] = useState(false)
     const myPlans = useSelector(state=> state.plan)
-   
+    const following = useSelector(state=> state.following )
+
     const clickEditFormOn = (data) => {
    
       dispatch(showEditForm(data))
