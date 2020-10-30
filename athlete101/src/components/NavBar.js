@@ -53,15 +53,15 @@ if (!loaded) {
         (<>
         <ButtonGroup>
       
-               <Button color="inherit" onClick={()=>setShowLogin(!showLogin)}>Log In</Button>
-              <Button href="/signup" color="inherit">Sign Up</Button>
+               <Button color="inherit" onClick={()=>setShowLogin(!showLogin)} style={{fontWeight:"bold"}}>Log In</Button>
+              <Button href="/signup" color="inherit" style={{fontWeight:"bold"}}>Sign Up</Button>
         </ButtonGroup>
           </>
         ) :
         (
           <ButtonGroup>
-          <Button color="inherit" href="/myProfile">My 101</Button>
-          <Button onClick={handleClick} color="inherit">Log Out</Button>
+          <Button color="inherit" href="/myProfile" style={{fontWeight:"bold"}}>My 101</Button>
+          <Button onClick={handleClick} color="inherit" style={{fontWeight:"bold"}}>Log Out</Button>
          </ButtonGroup>
         )
         }

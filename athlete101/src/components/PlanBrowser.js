@@ -78,12 +78,12 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
       <main>
 <div className="mainPagePictureDiv"></div>
         <div className={classes.heroContent}>
-          <Container maxWidth="lg" style={{backgroundColor:"	rgb(232,232,232)"}}>
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+          <Container maxWidth="xlg" style={{backgroundColor:"black"}}>
+            <Typography component="h1" variant="h2" align="center" style={{color:"white", fontWeight:"bold"}} gutterBottom>
              Train with the Best
             </Typography>
    
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            <Typography variant="h5" align="center" color="textSecondary" style={{color:"white", fontWeight:"bold"}} paragraph>
               Create, Customize, Publish your Workout Program!
               Just a click away from your next fitness goal
             </Typography>
@@ -91,7 +91,7 @@ const PlanBrowser = ({ needLogin, loadToken })=> {
           </Container>
         </div>
   {/* show the top plans right here//////////////////////*/}
-  <Typography component="h3" variant="h4" align="center" color="textSecondary">
+  <Typography component="h3" variant="h4" align="center" color="textSecondary" style={{fontWeight:"bold"}}>
              Most popular
             </Typography>
       <Container className={classes.cardGrid} maxWidth="md">
