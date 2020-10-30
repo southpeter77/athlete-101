@@ -3,7 +3,6 @@ import NavBar from "./NavBar"
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -14,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CardActions from '@material-ui/core/CardActions';
 import EditProfileAboutMe from "./EditProfileAboutMe"
 import {showEditForm} from "../store/actions/profile"
-
+import {grabMyPlansFunction} from "../store/actions/plan"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -54,15 +53,19 @@ const Profile = () => {
     const editedAboutMe = useSelector(state => state.profile.edited)
     const userInformation = useSelector(state=> state.user.userInformation)
     const editFormVisibility = useSelector(state => state.profile.showEdit)
-
+    const myId = window.localStorage.getItem("currentUserId");
     const [clickedEdit , setclickedEdit] = useState(false)
+    const myPlans = useSelector(state=> state.plan)
+   
     const clickEditFormOn = (data) => {
-
+   
       dispatch(showEditForm(data))
     }
 
     useEffect(()=> {
+
     dispatch(loadCurrentUser())
+    dispatch(grabMyPlansFunction(myId))
     setclickedEdit(!clickedEdit)
     },[editedAboutMe])
 
@@ -71,7 +74,7 @@ if(!userInformation) {
 }
     return (
         <>     
-
+  {/* <button onClick={()=>console.log(myPlans)}>sssssssssssss</button> */}
         <NavBar/>
         <CssBaseline />
       <main>
@@ -116,35 +119,43 @@ if(!userInformation) {
                   </Card>
                 </Grid>
               {editFormVisibility ?<EditProfileAboutMe/> : null}  
-                <Grid item xs={12} sm={6}>
-                <Card className={classes.card}>
-                <Typography gutterBottom component="h2" className="myProfileFont" >
+                <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
                       My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/myprofile/createPlan")}>Create New</Button>
                       </Typography>
-                  {/* <CardMedia
-                   className={classes.cardMedia}
-                    image=
-                     title="
-                 /> */}
-                 <CardContent className={classes.cardContent}>
-                     <Typography gutterBottom variant="h5" component="h2" >
-                      Heading
+    {Object.values(myPlans).map((each, i)=>
+      
+       <Grid key={i+1} item xs={12}>
+                <Card key={i+10} className={classes.card}>
+                 <CardContent key={i+100} className={classes.cardContent}>
+                     <Typography key={i+1000}  gutterBottom variant="h5" component="h2" >
+                      {each.title}
                       </Typography>
-                      <Typography>
-                        This is a media card. You can use this section to describe the content.
+                      <Typography key={i+10000} >
+                        {each.description}
                       </Typography>
                     </CardContent>
                   <CardActions>
-                      <Button size="small" color="primary">
+                      <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
                        View
                       </Button>
-                      <Button size="small" color="primary">
-                      Edit
-                      </Button>
                  </CardActions>
-                  </Card>
-                  
+                  </Card>      
             </Grid> 
+
+      )}
+
+
+
+               
+
+
+
+
+
+
+
+
+
             <Grid item xs={12} sm={6}>
             <Card className={classes.card}>
                   {/* <CardMedia

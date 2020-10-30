@@ -6,6 +6,7 @@ export const GRAB_ALL_PLANS = "GRAB_ALL_PLANS";
 export const CREATE_PLAN = "CREATE_PLAN"
 export const CURRENT_PLAN_ID = "CurrentPlanId"
 export const GRAB_ONE_PLAN = "GRAB_ONE_PLAN"
+export const GRAB_MY_PLANS = "GRAB_MY_PLANS"
 /////////////////////////////////////////////////
 
 export const grabAllPlans = (list) => {
@@ -30,18 +31,48 @@ export const createPlan = (data) => {
     }
 }
 
+export const grabMyPlans = (myPlans)=> {
+    return {
+        type:GRAB_MY_PLANS,
+        myPlans
+    }
+}
+
 /////////////////////////////////////////////////
+
+
+export const grabMyPlansFunction = (myId) => async (dispatch) => {
+    const token = window.localStorage.getItem(TOKEN_KEY)
+
+    const response = await fetch (`${apiUrl}/plan/myplan`,
+    {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        body: JSON.stringify({myId})
+    }
+    )
+
+    const myPlans = await response.json();
+dispatch(grabAllPlans(myPlans))
+}
+
+
+
+
+
+
+
+
+
 export const grabOnePlanFunction = (id) => async(dispatch) => {
     const response = await fetch (`${apiUrl}/plan/${id}`);
     const plan = await response.json();
     // console.log(plan)
     dispatch(grabOnePlan(plan))
 }
-//plan's owner info: name, year, about me.
-//category name
-//exercise associating the plan with pictures.
-
-
 
 
 
@@ -91,7 +122,9 @@ export default function reducer (state ={}, action) {
 
             return {...state, viewPlan:action.viewPlan}
         
+        case GRAB_MY_PLANS:
 
+        return {...state, myPlans: action.myPlans}
         
 
         default: return state

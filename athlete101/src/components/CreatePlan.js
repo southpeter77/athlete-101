@@ -215,7 +215,7 @@ return (
           </form>
      </div>
 { loadNext ? <ExerciseForm></ExerciseForm>: null}
-<ExerciseForm></ExerciseForm>
+{/* <ExerciseForm></ExerciseForm> */}
     </main>    
 </CssBaseline>
 
