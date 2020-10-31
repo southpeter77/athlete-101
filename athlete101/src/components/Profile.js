@@ -64,12 +64,13 @@ const Profile = () => {
     }
 
     const getOrder =() => {
-      dispatch(grabAllOrders(myId))
+      const data = Object.values(following)[0].map(each => each.title)
+      console.log(data)
     }
 
 
     useEffect(()=> {
-
+      dispatch(grabAllOrders(myId))
     dispatch(loadCurrentUser())
     dispatch(grabMyPlansFunction(myId))
     setclickedEdit(!clickedEdit)
@@ -152,15 +153,12 @@ if(!userInformation) {
 
       )}
 
-
-
-               
-
 {editFormVisibility ?<EditProfileAboutMe/> : null}  
                 <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
                       Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/")}>Explore</Button>
                       </Typography>
-    {Object.values(myPlans).map((each, i)=>
+
+    { following && Object.values(following)[0].map((each, i)=>
       
        <Grid key={i+1} item xs={12}>
                 <Card key={i+10} className={classes.card}>
