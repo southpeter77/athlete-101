@@ -41,7 +41,7 @@ return (
    
      <>
  <CssBaseline>
-  <div className="createExerciseDivContainer">
+  <div className="createExerciseDivContainer2 shadowDiv">
 
       <div className=' singleGifCOntainer'>
  <div 
@@ -49,7 +49,7 @@ return (
  className={`gif${pickedExercise}`}>
 </div>
  <Typography align="center" variant ="subtitle2">Provide TItle and Description</Typography>
- <Box textAlign='center'>
+ <Box textAlign='left'>
          <Button  
     variant="contained"
     color="Primary"
@@ -62,14 +62,16 @@ return (
     color="Secondary"
     onClick={deleteButtonHandler}
     >
-    Delete</Button>
+    Cancel</Button>
 
  </Box>
- <TextField
+ <div className="titleDescriptionDiv">
+     <TextField
         className="formDescriptionExercise" 
             name="description"
             variant="outlined"
             required
+            fullWidth
             value={title}
             id="description"
             label="Exercise Title"
@@ -82,13 +84,16 @@ return (
             variant="outlined"
             required
             multiline
-            rows={4}
+            fullWidth
+            rows={6}
             value={description}
             id="description"
             label="Provide detail about this work out"
             autoFocus
             onChange={updateProperty(setDescription)}
          />
+ </div>
+ 
 
 </div>
 </div>

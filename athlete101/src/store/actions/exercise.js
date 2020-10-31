@@ -31,7 +31,7 @@ export const createExerciseFunction =(data) => async (dispatch) => {
         body: JSON.stringify(data)
     })
     if(response.ok) {
-        console.log(response)
+        // console.log(response)
     }
 }
 

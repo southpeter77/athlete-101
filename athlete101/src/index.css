@@ -538,6 +538,11 @@ background-size: cover;
 
 .profileDivs {
     box-shadow: 2px 2px 7px rgb(66, 66, 66);
+}
+
+.shadowDiv {
+    box-shadow: 5px 5px 7px rgb(66, 66, 66);
+    border: 3px solid black;
 
 }
 
@@ -555,4 +560,38 @@ background-size: cover;
     border: 3px solid black;
     box-shadow: 2px 2px 7px rgb(66, 66, 66);
 
+}
+
+
+.previewDivContainer{
+    display:flex;
+    width:60%;
+    height: auto;
+    margin: 0pt auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+
+    overflow-y:hidden;
+    overflow-x: scroll;
+    height: 22em;
+
+}
+
+
+.createExerciseDivContainer2{
+    display:flex;
+    width:40%;
+    margin-left: 10%;
+    margin-top: 5%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    position:   relative;
+    overflow-y:hidden;
+    overflow-x: scroll;
+    height: 22em;
+
+}
+
+.titleDescriptionDiv{
+    border-color: Red;
 }

@@ -11,7 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import {createPlanFuction} from "../store/actions/plan"
-import {getPlanCategoryFunction} from "../store/actions/planCategory"
+import {getPlanCategoryFunction,} from "../store/actions/planCategory"
 import ExerciseForm from './ExerciseForm'
 
 
@@ -69,6 +69,8 @@ export default function CreatePlan() {
     const [loaded, setLoaded] = useState(false);
     const list = useSelector(state=> state.category)
     const[loadNext, setLoadNext] = useState(false)
+    const planId = window.localStorage.getItem("CurrentPlanId")
+
 //for form///////
 const [title, setTitle] = useState("");
 const [price, setPrice] = useState(0);
@@ -90,8 +92,9 @@ const onClickHandler = () => {
 
 useEffect(()=> {
     setLoaded(true)
+
 dispatch(getPlanCategoryFunction())
-},[dispatch])
+},[planId])
 
 if(!loaded) {
     return null;
@@ -102,7 +105,7 @@ return (
     <NavBar></NavBar>
 <CssBaseline>
     <main>
-        <div className="createPlanDivContainer">
+        <div className="createPlanDivContainer shadowDiv">
         <Typography component="h1" variant="h5" align="center">
                         CREATE YOUR OWN WORKOUT PLAN
          </Typography>
@@ -113,8 +116,8 @@ return (
                         Other user will look at this information before purchasing.
          </Typography>
         <form className={classes.form} noValidate>
-        <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid container spacing={2} >
+        <Grid item xs={12} >
               <TextField
                   name="title"
                   variant="outlined"
@@ -206,7 +209,13 @@ return (
           </form>
      </div>
 { loadNext ? <ExerciseForm></ExerciseForm>: null}
-{/* <ExerciseForm></ExerciseForm> */}
+{/* <ExerciseForm planId={planId}></ExerciseForm> */}
+{/* {viewPlan ? viewPlan.map(each=><h1>{each.title}</h1>) :null}s */}
+
+
+
+
+
     </main>    
 </CssBaseline>
 
