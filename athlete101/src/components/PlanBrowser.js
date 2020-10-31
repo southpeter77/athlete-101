@@ -93,7 +93,7 @@ const PlanBrowser = ({loadToken })=> {
         </div>
   {/* show the top plans right here//////////////////////*/}
   <Typography component="h3" variant="h4" align="center" color="textSecondary" style={{fontWeight:"bold"}}>
-             Most popular
+             Explore work out plans
             </Typography>
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing ={4}>
@@ -102,9 +102,9 @@ const PlanBrowser = ({loadToken })=> {
       <Grid item key={i} xs={12} sm={6}>
           <Card className={classes.card}>
             <CardContent className={classes.cardContent}>
-        <Typography gutterBottom variant="h5" component="h2">
+        {/* <Typography gutterBottom variant="h5" component="h2">
           Top Plan {i+1} <br></br>
-        </Typography>
+        </Typography> */}
         <Typography 
         style={{color:'gray', fontWeight:"bold"}}
         gutterBottom variant="h5" component="h2">
