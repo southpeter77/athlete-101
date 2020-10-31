@@ -64,7 +64,7 @@ try {
         throw response
     } else {
         const jsoned =await response.json()
-        console.log(jsoned)
+        // grabMyPlansFunction(id)
     }
 }catch(err) {
     

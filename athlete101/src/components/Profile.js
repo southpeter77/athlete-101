@@ -15,6 +15,9 @@ import EditProfileAboutMe from "./EditProfileAboutMe"
 import {showEditForm} from "../store/actions/profile"
 import {grabMyPlansFunction, } from "../store/actions/plan"
 import {grabAllOrders} from "../store/actions/order"
+import {deleteMyPlanFunction} from "../store/actions/plan"
+
+
 const useStyles = makeStyles((theme) => ({
 
     heroContent: {
@@ -56,6 +59,7 @@ const Profile = () => {
     const [clickedEdit , setclickedEdit] = useState(false)
     const myPlans = useSelector(state=> state.plan)
     const following = useSelector(state=> state.following )
+ 
 
     const clickEditFormOn = (data) => {
    
@@ -67,11 +71,13 @@ const Profile = () => {
       console.log(data)
     }
 
-//     const deleteButton =(id) => {  deleteMyPlanFunction
-// console.log(id)
-//       dispatch(deleteMyPlanFunction(id))
-//     }
 
+    const deleteButton =(id) => {  
+     dispatch(deleteMyPlanFunction(id))
+    // dispatch(grabMyPlansFunction(myId))
+    window.location.replace('/myProfile')
+
+    }
 
     useEffect(()=> {
       dispatch(grabAllOrders(myId))
@@ -151,9 +157,9 @@ if(!userInformation) {
                       <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
                        View
                       </Button>
-                      {/* <Button size="small" style={{color:"red"}} onClick={()=> deleteButton(each.id)} >
+                      <Button size="small" style={{color:"red"}} onClick={()=> deleteButton(each.id)} >
                        Delete
-                      </Button> */}
+                      </Button>
                  </CardActions>
                   </Card>      
             </Grid> 
