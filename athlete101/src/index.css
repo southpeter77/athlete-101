@@ -425,7 +425,7 @@ bottom: 150pt
 
 .ownersInformationDiv{
     margin:50pt;
-    background-color: rgb(228, 226, 226);
+    background-color: rgb(240, 240, 240);
     border-radius: 10pt;
     padding:10pt;
     border: 3px solid black;
@@ -512,7 +512,7 @@ background-size: cover;
 
 .reviewContainer{
     margin:50pt;
-    background-color: rgb(228, 226, 226);
+    background-color: rgb(240, 240, 240);
     border-radius: 10pt;
     padding:10pt;
     border: 3px solid black;
@@ -535,3 +535,9 @@ background-size: cover;
 .followButton:focus {
     color: red;
 }
+
+.profileDivs {
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+
+}
+

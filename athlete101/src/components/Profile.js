@@ -88,9 +88,9 @@ if(!userInformation) {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container className={classes.cardGrid} maxWidth="md">
+          <Container className={classes.cardGrid} maxWidth="md" >
           <div>picture here from user's profile information</div>
-            <Typography component="h1" variant="h3" align="right" color="textSecondary" gutterBottom>
+            <Typography component="h1" variant="h3" align="right" color="textSecondary" gutterBottom style={{textDecoration:"underline"}}>
                 Hello {userInformation.firstName.toUpperCase()}!
             </Typography>
             <Typography component="h1" variant="subtitle1" align="center" gutterBottom>
@@ -98,16 +98,16 @@ if(!userInformation) {
             </Typography>
      
     
-            <Grid container spacing={2}>
+            <Grid container spacing={2} className="profileDivs">
            
-                  <Grid item xs={12}>
+                  <Grid item xs={12} className="profileDivs">
                   <Card  variant="outlined" color="primary" className={classes.card}>
                   {/* <CardMedia
                    className={classes.cardMedia}
                  /> */}
-                 <CardContent className={classes.cardContent}>
-                     <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
-                    Profile
+                 <CardContent className={classes.cardContent} >
+                     <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" style={{textDecoration:"underline"}}>
+                     Profile
                       </Typography>
                       <Typography variant="h6" component="h2">
                      {userInformation.trainer ? "Trainer": "Trainee"}: 
@@ -127,12 +127,12 @@ if(!userInformation) {
                   </Card>
                 </Grid>
               {editFormVisibility ?<EditProfileAboutMe/> : null}  
-                <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
+                <Typography gutterBottom variant="h4" component="h3" className="myProfileFont" style={{textDecoration:"underline"}}>
                       My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/myprofile/createPlan")}>Create New</Button>
                       </Typography>
     {Object.values(myPlans).map((each, i)=>
       
-       <Grid key={i+1} item xs={12}>
+       <Grid key={i+1} item xs={12} className="profileDivs">
                 <Card key={i+10} className={classes.card}>
                  <CardContent key={i+100} className={classes.cardContent}>
                      <Typography key={i+1000}  gutterBottom variant="h5" component="h2" >
@@ -146,17 +146,24 @@ if(!userInformation) {
                       <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
                        View
                       </Button>
+                      <Button size="small" style={{color:"red"}} onClick={()=> console.log(each.id)} >
+                       Delete
+                      </Button>
                  </CardActions>
                   </Card>      
             </Grid> 
 
       )}
-
-                <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
+  {/* /////////////////////////////////////////////////////////////////////////////////////
+  {/* ///////////////////////////////////////////////////////////////////////////////////// */}
+  {/* ///////////////////////////////////////////////////////////////////////////////////// */}
+                <Typography gutterBottom variant="h3" component="h2" className="myProfileFont"style={{textDecoration:"underline"}} >
                       Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/")}>Explore</Button>
                       </Typography>
+
+
     {following ? Object.values(following)[0].map((each, i)=>
-       <Grid key={i+1} item xs={12}>
+       <Grid key={i+1} item xs={12} className="profileDivs">
                 <Card key={i+10} className={classes.card}>
                  <CardContent key={i+100} className={classes.cardContent}>
                      <Typography key={i+1000}  gutterBottom variant="h5" component="h2" >

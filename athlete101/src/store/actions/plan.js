@@ -7,7 +7,15 @@ export const CREATE_PLAN = "CREATE_PLAN"
 export const CURRENT_PLAN_ID = "CurrentPlanId"
 export const GRAB_ONE_PLAN = "GRAB_ONE_PLAN"
 export const GRAB_MY_PLANS = "GRAB_MY_PLANS"
+export const DELETE_MY_PLAN = "DELETE_MY_PLAN"
 /////////////////////////////////////////////////
+export const deleteMyPlan = (id) => {
+    return {
+        type: DELETE_MY_PLAN,
+        id
+    }
+}
+
 
 export const grabAllPlans = (list) => {
     return {
@@ -39,7 +47,17 @@ export const grabMyPlans = (myPlans)=> {
 }
 
 /////////////////////////////////////////////////
-
+export const deleteMyPlanFunction = (id) => async (dispatch) => {
+    const token = window.localStorage.getItem(TOKEN_KEY);
+    const response = await fetch(`${apiUrl}/plan/delete`, {
+        method: "delete",
+        headers: {
+            'Content-Type': "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({id})
+    })
+}
 
 export const grabMyPlansFunction = (myId) => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY)

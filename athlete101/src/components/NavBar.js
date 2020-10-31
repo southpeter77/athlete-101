@@ -23,7 +23,7 @@ const NavBar = () => {
     useEffect(()=> {
       setLoaded(true)
       dispatch(loadToken())
-    })
+    },[dispatch])
 
     const handleClick =() => {
         dispatch(logout());
