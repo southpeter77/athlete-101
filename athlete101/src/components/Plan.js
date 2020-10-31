@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import NavBar from "./NavBar"
 import { useParams } from 'react-router-dom';
-import {grabOnePlanFunction} from '../store/actions/plan'
+import {grabOnePlanFunction,  deleteMyPlanFunction} from '../store/actions/plan'
 import Reviews from "./Reviews"
 
 const Plan = ()=> {
@@ -19,6 +19,12 @@ useEffect(()=> {
 
   dispatch(grabOnePlanFunction(planId))
 },[])
+
+const deleteButton =(id) => { 
+  console.log(id)
+        dispatch(deleteMyPlanFunction(id))
+      }
+
 
 const click = () => {
   console.log(viewPlan)
@@ -46,7 +52,7 @@ const click = () => {
   <Typography variant="subtitle2"align="left">About {viewPlan.planOwnerFirstName.toUpperCase()}: {viewPlan.planOwnerAboutMe}</Typography>
   <Typography gutterBottom variant="subtitle2"align="left">Training Since: {viewPlan.planOwnerYear}</Typography>
   <Typography gutterBottom variant="subtitle2"align="left">Workout Category: {viewPlan.planCategory}</Typography>
-  <Button size="small" style={{color:"black", backgroundColor:"gray"}}>View Profile</Button>
+  {/* <Button size="small" style={{color:"black", backgroundColor:"gray"}}>View Profile</Button> */}
 </div>
 
 <Reviews planId={planId} currentUserId={currentUserId}></Reviews>
@@ -60,6 +66,17 @@ const click = () => {
 <div className="planAuthor">
   <Typography variant="h6"align="center"> Author: {viewPlan.planOwnerFirstName} {viewPlan.planOwnerLastName}</Typography>
 </div>
+
+<button className="orangeBox"
+
+onClick={()=> {
+  window.location.replace("/myProfile")
+  deleteButton(id)}}
+>
+    <span id="x">X</span>
+</button>
+
+
  </div>
 
  <div className="planDescription">

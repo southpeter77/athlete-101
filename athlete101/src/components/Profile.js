@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CardActions from '@material-ui/core/CardActions';
 import EditProfileAboutMe from "./EditProfileAboutMe"
 import {showEditForm} from "../store/actions/profile"
-import {grabMyPlansFunction} from "../store/actions/plan"
+import {grabMyPlansFunction, } from "../store/actions/plan"
 import {grabAllOrders} from "../store/actions/order"
 const useStyles = makeStyles((theme) => ({
 
@@ -66,6 +66,11 @@ const Profile = () => {
       const data = Object.values(following)[0].map(each => each.title)
       console.log(data)
     }
+
+//     const deleteButton =(id) => {  deleteMyPlanFunction
+// console.log(id)
+//       dispatch(deleteMyPlanFunction(id))
+//     }
 
 
     useEffect(()=> {
@@ -146,9 +151,9 @@ if(!userInformation) {
                       <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
                        View
                       </Button>
-                      <Button size="small" style={{color:"red"}} onClick={()=> console.log(each.id)} >
+                      {/* <Button size="small" style={{color:"red"}} onClick={()=> deleteButton(each.id)} >
                        Delete
-                      </Button>
+                      </Button> */}
                  </CardActions>
                   </Card>      
             </Grid> 
@@ -157,7 +162,7 @@ if(!userInformation) {
   {/* /////////////////////////////////////////////////////////////////////////////////////
   {/* ///////////////////////////////////////////////////////////////////////////////////// */}
   {/* ///////////////////////////////////////////////////////////////////////////////////// */}
-                <Typography gutterBottom variant="h3" component="h2" className="myProfileFont"style={{textDecoration:"underline"}} >
+                <Typography gutterBottom variant="h4" component="h2" className="myProfileFont"style={{textDecoration:"underline"}} >
                       Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/")}>Explore</Button>
                       </Typography>
 

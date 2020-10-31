@@ -49,6 +49,8 @@ export const grabMyPlans = (myPlans)=> {
 /////////////////////////////////////////////////
 export const deleteMyPlanFunction = (id) => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY);
+try {
+
     const response = await fetch(`${apiUrl}/plan/delete`, {
         method: "delete",
         headers: {
@@ -57,6 +59,18 @@ export const deleteMyPlanFunction = (id) => async (dispatch) => {
         },
         body: JSON.stringify({id})
     })
+    
+    if (!response.ok) {
+        throw response
+    } else {
+        const jsoned =await response.json()
+        console.log(jsoned)
+    }
+}catch(err) {
+    
+}
+
+
 }
 
 export const grabMyPlansFunction = (myId) => async (dispatch) => {

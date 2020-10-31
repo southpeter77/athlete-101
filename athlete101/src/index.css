@@ -465,7 +465,7 @@ bottom: 150pt
     border: 3px solid black;
     border-radius: 10pt;
     padding:10pt;
-    width: 35%;
+    width: 30%;
     top: 200pt;
     box-shadow: 2px 2px 7px rgb(66, 66, 66);
     /* margin:0 auto; */
@@ -541,3 +541,18 @@ background-size: cover;
 
 }
 
+.orangeBox {
+    background:red;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 7pt;
+    border: 3px solid black;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+
+}

@@ -87,7 +87,7 @@ const Reviews = ({planId, currentUserId}) => {
             onChange={updateProperty(setComment)}
          />
          </Grid>
-<Button size="small" style={{color:"black", backgroundColor:"gray"}}
+<Button size="small" style={{color:"black", backgroundColor:"lightgray"}}
 onClick={()=>submitHandler()}
 >Submit</Button>
 </div>
