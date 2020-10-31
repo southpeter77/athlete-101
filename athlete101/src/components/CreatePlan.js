@@ -91,7 +91,7 @@ const onClickHandler = () => {
 useEffect(()=> {
     setLoaded(true)
 dispatch(getPlanCategoryFunction())
-},[])
+},[dispatch])
 
 if(!loaded) {
     return null;

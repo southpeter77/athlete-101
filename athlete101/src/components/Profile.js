@@ -50,7 +50,6 @@ const Profile = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch()
-    const editedAboutMe = useSelector(state => state.profile.edited)
     const userInformation = useSelector(state=> state.user.userInformation)
     const editFormVisibility = useSelector(state => state.profile.showEdit)
     const myId = window.localStorage.getItem("currentUserId");
@@ -74,7 +73,7 @@ const Profile = () => {
     dispatch(loadCurrentUser())
     dispatch(grabMyPlansFunction(myId))
     setclickedEdit(!clickedEdit)
-    },[editedAboutMe])
+    },[])
 
 if(!userInformation) {
     return null
@@ -153,13 +152,10 @@ if(!userInformation) {
 
       )}
 
-{editFormVisibility ?<EditProfileAboutMe/> : null}  
                 <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" >
                       Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/")}>Explore</Button>
                       </Typography>
-
-    { following && Object.values(following)[0].map((each, i)=>
-      
+    {following ? Object.values(following)[0].map((each, i)=>
        <Grid key={i+1} item xs={12}>
                 <Card key={i+10} className={classes.card}>
                  <CardContent key={i+100} className={classes.cardContent}>
@@ -177,19 +173,10 @@ if(!userInformation) {
                  </CardActions>
                   </Card>      
             </Grid> 
+      ) : null}
 
-      )}
-
-
-
-
-
-
-
-
-
+      
             </Grid>
-         
           </Container>
         </div>
   {/* show my plans on the left and show me subscribing plan on right //////////////////////*/}

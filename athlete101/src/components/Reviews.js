@@ -25,7 +25,7 @@ const Reviews = ({planId, currentUserId}) => {
     useEffect(()=> {
         dispatch(grabAllReviewFunction(planId))
 
-    },[loadReview])
+    },[loadReview,])
 
 
     const updateProperty = (callback) => (e) => {

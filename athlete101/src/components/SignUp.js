@@ -74,7 +74,7 @@ const SignUp = ({ needLogin, loadToken }) => {
     const[firstName, setFirstName] = useState('');
     const[lastName, setLastName] = useState('');
     const[started_training_year, setStarted_training_year] = useState('');
-    const[balance, setBalance] = useState('');
+    const[balance] = useState('');
     const errors = useSelector(state=> state.user.signInError)
     const [showLogin, setShowLogin] = useState(false)
     

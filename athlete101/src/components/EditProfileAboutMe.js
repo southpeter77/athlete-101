@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React,{ useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -44,8 +44,8 @@ const EditProfileAboutMe = () => {
         
         <div className="editProfileAboutMeForm3">
          
-        <form className="editProfileAboutMeForm2"  className={classes.form} noValidate onSubmit={handleSubmit}>
-         {error ? <p>You need to provide About Me!!!</p>:null}
+        <form className={classes.form}  noValidate onSubmit={handleSubmit}>
+         {error ? <p style={{color:"red"}}>You need to provide About Me!!!</p>:null}
         <Grid>
         <TextField
         className="editProfileAboutMeForm2"

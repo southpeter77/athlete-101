@@ -2,15 +2,15 @@ import {apiUrl} from "../../config"
 
 
 
-const CREATE_ORDER = "CREATE_ORDER";
+// const CREATE_ORDER = "CREATE_ORDER";
 const GRAB_FOLLOWING_PLAN="GRAB_FOLLOWING_PLAN"
 ////////////////////////////////////
 
-const createOrder = () => {
-    return {
-        type:CREATE_ORDER,
-    }
-}
+// const createOrder = () => {
+//     return {
+//         type:CREATE_ORDER,
+//     }
+// }
 
 
 export const grabFollowingPlan = (following) => {
@@ -23,11 +23,12 @@ export const grabFollowingPlan = (following) => {
 ////////////////////////////////////
 export const createOrderFunction = (currentPlanId)=> async (dispatch) => {
     const currentUserId = window.localStorage.getItem("currentUserId")
-    const response = await fetch(`${apiUrl}/order/create`, {
+    await fetch(`${apiUrl}/order/create`, {
         method: "post",
         headers:{"Content-Type": "application/json"},
         body: JSON.stringify({currentPlanId, currentUserId})
     })
+
 
 }
 

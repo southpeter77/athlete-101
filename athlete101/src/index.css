@@ -528,7 +528,10 @@ background-size: cover;
     padding:10pt;
     width: 100%;
     box-shadow: 2px 2px 7px rgb(66, 66, 66);
-    margin: 0.5%
+    margin: 0.5%  
+}
 
-    
+
+.followButton:focus {
+    color: red;
 }

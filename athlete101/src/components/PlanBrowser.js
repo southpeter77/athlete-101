@@ -101,13 +101,14 @@ const PlanBrowser = ({loadToken })=> {
     return (
       <Grid item key={i} xs={12} sm={6}>
           <Card className={classes.card}>
-            {/* <CardMedia 
-            className ={classes.cardMedia} 
-            image={`../images/simple${i+1}.png`}
-            ></CardMedia> */}
             <CardContent className={classes.cardContent}>
         <Typography gutterBottom variant="h5" component="h2">
-          Top Plan {i+1}
+          Top Plan {i+1} <br></br>
+        </Typography>
+        <Typography 
+        style={{color:'gray', fontWeight:"bold"}}
+        gutterBottom variant="h5" component="h2">
+        Title: {each.title}
         </Typography>
         <Typography>
           Trainer: {each.User.firstName} {each.User.lastName}
@@ -124,7 +125,7 @@ const PlanBrowser = ({loadToken })=> {
         >
                        View
                       </Button>
-                      {token ? <Button size="large" color="primary" onClick={()=>followButton(each.id)}>Follow</Button> : null}
+                      {token ? <Button size="large" className="followButton" color="primary" onClick={()=>followButton(each.id)}>Follow</Button> : null}
                       
             </CardContent>
 

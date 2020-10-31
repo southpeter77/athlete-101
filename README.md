@@ -6,7 +6,7 @@
 
 -Users can follow (subscribe) other users' workout plans
 
--anyone can join but only logged in user can create / subscribe workout plan(only subscribing user can view the whole data)
+-anyone can join but only logged in user can create / follow workout plan
 
 -top rated workout plan will show on the main page of the app
 
@@ -44,17 +44,90 @@
     -title/description/pictures/price
     -publish button.
     -will be able to add each exercise in the form
-## delete workout plan
-    -delete the work out plan
-## edit workout plan
-    -shows a filled out form with data that user input before and able to edit
-    -publish button
-## Shopping Cart
-    -shows the plan that user clicked subscribe.
-    -will have a purchase button that will take money out from purchasing user and add that amount to the owner of plan
-    -just a simple transaction.
+
+
 
 ### Back-End
-|Path|HTTP Verb|Meaning|
-|----|---------|-------|
-| /api/user/signup | post | sign up a user |
+all the back end fetch starts with /api
+
+```
+Category:
+/all
+Verb Get
+Grab all the category for the form category
+
+Exercise:
+/all
+Verb Get
+Grab all the Exercise with gifs
+
+/create
+Verb Post
+Grab provided information from front end and create in the back end.
+
+Image:
+/all
+Verb get
+Grab all the Images
+
+Order:
+/create
+Verb Post
+Create Order
+
+/all
+Verb get
+Get all the order associating with the current User
+
+Plan:
+/myplan
+Verb Put
+Grab all the plan associating the user
+
+/top
+Verb Get
+grab top rated Plan. Not sure how many to grab yet.
+
+/:di
+Verb Get
+grab certain plan with the associating plan's id
+
+/create
+Verb Post
+Grab data from front and create a plan
+
+Profile
+/aboutme
+Verb Get
+Grab information about me 
+
+
+Review
+/submit
+Verb Post
+Grab information to save for the review, rating and comment
+associating userid and the plan id. then create.
+
+/
+Verb Put
+Grab the Plan id and grab all the reviews
+//
+
+
+User
+/signup
+Verb Post
+Sign up with all the information and create user.
+
+/
+Verb Put
+Log in with information.
+
+/:id
+Verb Get
+Grab certian users Id and grab information
+
+
+
+
+```
