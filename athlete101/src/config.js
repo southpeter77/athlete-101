@@ -3,7 +3,6 @@
 module.exports ={
     apiUrl:
         process.env.NODE_ENV === "development" 
-          ? "https://athlete101.herokuapp.com/api"
-        : "http://localhost:8000/api"
-      
+        ? "http://localhost:8000/api"
+        : "https://athlete101.herokuapp.com/api"
 }
