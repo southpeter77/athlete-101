@@ -7,7 +7,7 @@ import Box from '@material-ui/core/Box';
 import {getExercisesFunction} from "../store/actions/exercise"
 import ExerciseDetail from "./ExerciseDetail"
 import {pickedExerciseInFormFunction} from '../store/actions/pickedExercise'
-
+import {grabOnePlanFunction} from "../store/actions/plan"
 
 export default function CreatePlan() {
     const dispatch = useDispatch();
@@ -16,12 +16,14 @@ export default function CreatePlan() {
     const exerciseList = useSelector(state => state.exercise)
     const[pickedExerciseName, setPickedExerciseName] =useState('')
     const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail.pickedExercise)
+    const planId = window.localStorage.getItem("CurrentPlanId")
     const viewPlan = useSelector(state => state.plan.viewPlan)
 
     //for form///////
 
 useEffect(()=> {
     dispatch(getExercisesFunction())
+    dispatch(grabOnePlanFunction(planId))
 setLoaded(true);
 
 },[pickedExerciseDetail])
@@ -82,28 +84,28 @@ return (
 {viewPlan.exercises ? 
 <>
 <button onClick={()=>console.log(viewPlan)}>aaaaaaaaa</button> 
+<div className="previewDivContainer">
 {viewPlan.exercises.map(each => 
     <>
 
+
+    
+
     </>
     )}
-<Button
-onClick={()=>{
+    
+    <Button
+    onClick={()=>{
     window.localStorage.removeItem("CurrentPlanId")
-    window.location.replace("/myProfile")
-}}
->Done</Button>
+    window.location.replace("/myProfile")}}
+    >Done</Button>
 
-</>
+        </div>
+    </>
+
 : null} 
-
-
-
-
-
-
-
 
     </>
 )
+
 }
