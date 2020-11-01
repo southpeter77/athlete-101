@@ -183,6 +183,8 @@ body {
     margin-top: 5%;
     border: 1px solid lightgray;
     border-radius: 10px;
+    box-shadow: 2px 5px 7px rgb(66, 66, 66);
+
 }
 
 .gif1{
@@ -353,6 +355,8 @@ body {
     overflow-y:hidden;
     overflow-x: scroll;
     height: 22em;
+    box-shadow: 2px 5px 7px rgb(66, 66, 66);
+
 
 }
 /* .eachGifContainer{
@@ -564,6 +568,7 @@ background-size: cover;
 
 
 .previewDivContainer{
+<<<<<<< HEAD
     display:flex;
     width:60%;
     height: auto;
@@ -594,4 +599,15 @@ background-size: cover;
 
 .titleDescriptionDiv{
     border-color: Red;
+=======
+    margin:50pt;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10pt;
+    padding:10pt;
+    border: 3px solid black;
+    width: 70%;
+    top:30%;
+    box-shadow: 2px 5px 7px rgb(66, 66, 66);
+    margin:0 auto;
+>>>>>>> f864fd5... added css
 }

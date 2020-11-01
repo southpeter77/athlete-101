@@ -33,6 +33,7 @@ export default function CreatePlan() {
     const exerciseList = useSelector(state => state.exercise)
     const[pickedExerciseName, setPickedExerciseName] =useState('')
     const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail.pickedExercise)
+    const planId = window.localStorage.getItem("CurrentPlanId")
     const viewPlan = useSelector(state => state.plan.viewPlan)
     const planId = window.localStorage.getItem("CurrentPlanId")
     const classes = useStyles();
@@ -128,8 +129,9 @@ return (
     
     </>
     )}
-<Button
-onClick={()=>{
+    
+    <Button
+    onClick={()=>{
     window.localStorage.removeItem("CurrentPlanId")
     window.location.replace("/myProfile")
 }}
@@ -142,4 +144,5 @@ onClick={()=>{
 
     </>
 )
+
 }
