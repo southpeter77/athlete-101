@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
+import {deleteExerciseById} from "../store/actions/exercise"
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -36,8 +37,13 @@ export default function CreatePlan() {
     const viewPlan = useSelector(state => state.plan.viewPlan)
     // const planId = window.localStorage.getItem("CurrentPlanId")
     const classes = useStyles();
-
+    const[deleted, setDeleted] = useState(true)
     //for form///////
+const deleteHandler = (id) => {
+    setDeleted(!deleted)
+    dispatch(deleteExerciseById(id))
+}
+
 
 useEffect(()=> {
     dispatch(getExercisesFunction())
@@ -45,7 +51,7 @@ useEffect(()=> {
 
 setLoaded(true);
 
-},[pickedExerciseDetail])
+},[pickedExerciseDetail, deleted])
 
 // return <button onClick={()=>console.log(viewPlan,exerciseList)}>bbb</button>
 
@@ -109,7 +115,7 @@ return (
    <div className="previewTitle" >
 <Typography component="h4" variant="subtitle"  >{each.title}</Typography>
    <button className="redBox"
-   onClick={()=>console.log('hi')}
+   onClick={()=>deleteHandler(each.id)}
    >X</button>
    </div>
   

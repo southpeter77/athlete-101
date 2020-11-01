@@ -3,7 +3,7 @@ import {apiUrl} from "../../config"
 
 export const GET_EXERCISES = "GET_EXERCISES"
 export const CREATE_EXERCISE = "CREATE_EXERCISE"
-
+export const DELETE_EXERCISE_BY_ID = "DELETE_EXERCISE_BY_ID"
 
 //////////////////////
 
@@ -35,7 +35,13 @@ export const createExerciseFunction =(data) => async (dispatch) => {
     }
 }
 
-
+export const deleteExerciseById = (id) => async (dispatch) => {
+    const response = await fetch(`${apiUrl}/exercise/delete`, {
+        method: "delete",
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify({id})
+    })
+}
 
 
 export const getExercisesFunction = () => async(dispatch) => {
