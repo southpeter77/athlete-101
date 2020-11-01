@@ -14,7 +14,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 
-
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
         paddingTop: theme.spacing(8),
@@ -48,7 +47,9 @@ setLoaded(true);
 
 },[pickedExerciseDetail])
 
-if(!loaded) {
+// return <button onClick={()=>console.log(viewPlan,exerciseList)}>bbb</button>
+
+if(!viewPlan) {
     return null
 }
 
@@ -95,47 +96,41 @@ return (
 
 {pickedExerciseDetail ?<ExerciseDetail pickedExercise={pickedExercise} pickedExerciseName={pickedExerciseName}></ExerciseDetail> : null}
 
-
+{/* <button onClick={()=>console.log(viewPlan.exercises)}>aaaaaaaaa</button>  */}
 {viewPlan.exercises ? 
 <>
 <div className="previewDivContainer shadowDiv">
-<button onClick={()=>console.log(viewPlan.exercises)}>aaaaaaaaa</button> 
+<Typography component="h4" variant="h5" align="center" style={{fontWeight:"bold", textDecoration:"underline"}}>Quick Overview</Typography>
+
 {viewPlan.exercises.map(each => 
     <>
-    <Container className={classes.cardGrid} maxWidth="md" >
-    <Typography component="h5" variant="h5" align="left" color="textSecondary" gutterBottom style={{textDecoration:"underline"}}>
-                Quick Preview
-            </Typography>
+    <div className="previewEachContainer" >
 
-            <Grid container spacing={2} className="profileDivs">
-           
-           <Grid item xs={12} className="profileDivs">
-           <Card  variant="outlined" color="primary" className={classes.card}>
+   <div className="previewTitle" >
+<Typography component="h4" variant="subtitle"  >{each.title}</Typography>
+   <button className="redBox"
+   onClick={()=>console.log('hi')}
+   >X</button>
+   </div>
   
-          <CardContent className={classes.cardContent} >
-              <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" style={{textDecoration:"underline"}}>
-              Profile
-               </Typography>
-               <Typography variant="h6" component="h2">
-            
 
-               </Typography>
-             </CardContent>
-           </Card>
-         </Grid>
-         </Grid>
-    </Container>
 
-    
+   <div className="previewDescription" >
+   <Typography component="h4" variant="subtitle"  >{each.description}</Typography>
+   
+   </div>
+
+   </div>
     </>
     )}
     
-    <Button
+    
+    <Button size="large"
     onClick={()=>{
     window.localStorage.removeItem("CurrentPlanId")
     window.location.replace("/myProfile")
 }}
->Done</Button>
+>Confirm</Button>
 </div>
 </>
 : null} 

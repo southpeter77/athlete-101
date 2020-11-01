@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import {deletePickedExerciseFunction} from '../store/actions/pickedExercise'
 import {createExerciseFunction} from "../store/actions/exercise"
 import {CURRENT_PLAN_ID} from "../store/actions/plan"
+import Grid from '@material-ui/core/Grid';
 
 
 export default function ExerciseDetail({pickedExercise, pickedExerciseName}) {
@@ -65,13 +66,12 @@ return (
     Cancel</Button>
 
  </Box>
- <div className="titleDescriptionDiv">
+
      <TextField
         className="formDescriptionExercise" 
             name="description"
             variant="outlined"
             required
-            fullWidth
             value={title}
             id="description"
             label="Exercise Title"
@@ -84,16 +84,17 @@ return (
             variant="outlined"
             required
             multiline
-            fullWidth
-            rows={6}
+            rows={8}
             value={description}
             id="description"
             label="Provide detail about this work out"
             autoFocus
             onChange={updateProperty(setDescription)}
          />
- </div>
- 
+
+
+
+
 
 </div>
 </div>

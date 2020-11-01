@@ -399,7 +399,7 @@ body {
 .formDescriptionExercise{
 width: 500pt;
 left: 200pt;
-bottom: 150pt
+bottom: 200pt
 }
 .singleGifCOntainer{
     border: 5px solid black;
@@ -554,40 +554,23 @@ background-size: cover;
     background:red;
     color: #fff;
     font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     text-align: center;
-    width: 40px;
-    height: 40px;
+    width: 26px;
+    height: 26px;
     border-radius: 5px;
     margin: 7pt;
     border: 3px solid black;
     box-shadow: 2px 2px 7px rgb(66, 66, 66);
-
 }
-
-
-.previewDivContainer{
-    display:flex;
-    width:60%;
-    height: auto;
-    margin: 0pt auto;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-
-    overflow-y:hidden;
-    overflow-x: scroll;
-    height: 22em;
-
-}
-
 
 .createExerciseDivContainer2{
     display:flex;
-    width:40%;
+    width:80%;
     margin-left: 10%;
     margin-top: 5%;
-    border: 1px solid lightgray;
+    border: bpx solid black;
     border-radius: 10px;
     position:   relative;
     overflow-y:hidden;
@@ -598,4 +581,61 @@ background-size: cover;
 
 .titleDescriptionDiv{
     border-color: Red;
+}
+
+
+.previewDivContainer{
+    /* display:flex; */
+    width:80%;
+    height: auto;
+    margin: 0pt auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    overflow-y:hidden;
+    overflow-x: scroll;
+    height: auto;
+}
+.previewEachContainer{
+    border: 1px solid black;
+    border-radius: 10pt;
+    padding:10pt;
+    width: 90%;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    margin: 0 auto;
+    height: 120pt
+    
+}
+
+.previewTitle{
+    border: 1px solid black;
+    border-radius: 10pt;
+    padding:10pt;
+    width: 30%;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    margin: 0.5%;
+    height: 30pt;
+}
+.previewDescription{
+    border: 1px solid black;
+    border-radius: 10pt;
+    padding:10pt;
+    width: 90%;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    margin: 0.5%;
+    height: 65pt
+}
+
+.redBox {
+    background:red;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    border: 3px solid black;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    margin-left: 330%
 }
