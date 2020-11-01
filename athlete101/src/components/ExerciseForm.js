@@ -16,6 +16,7 @@ export default function CreatePlan() {
     const exerciseList = useSelector(state => state.exercise)
     const[pickedExerciseName, setPickedExerciseName] =useState('')
     const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail.pickedExercise)
+    const viewPlan = useSelector(state => state.plan.viewPlan)
 
     //for form///////
 
@@ -71,6 +72,36 @@ return (
  </CssBaseline>
 
 {pickedExerciseDetail ?<ExerciseDetail pickedExercise={pickedExercise} pickedExerciseName={pickedExerciseName}></ExerciseDetail> : null}
+
+
+
+
+
+
+
+{/* {viewPlan.exercises ? 
+<>
+<button onClick={()=>console.log(viewPlan.exercises)}>aaaaaaaaa</button> 
+{viewPlan.exercises.map(each => 
+    <>
+
+    </>
+    )}
+<Button
+onClick={()=>{
+    window.localStorage.removeItem("CurrentPlanId")
+    window.location.replace("/myProfile")
+}}
+>Done</Button>
+
+</>
+: null}  */}
+
+
+
+
+
+
 
 
     </>
