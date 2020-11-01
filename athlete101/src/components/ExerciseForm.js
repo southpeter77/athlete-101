@@ -35,7 +35,7 @@ export default function CreatePlan() {
     const pickedExerciseDetail = useSelector(state => state.exerciseFormDetail.pickedExercise)
     const planId = window.localStorage.getItem("CurrentPlanId")
     const viewPlan = useSelector(state => state.plan.viewPlan)
-    const planId = window.localStorage.getItem("CurrentPlanId")
+    // const planId = window.localStorage.getItem("CurrentPlanId")
     const classes = useStyles();
 
     //for form///////

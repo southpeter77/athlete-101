@@ -148,6 +148,7 @@ export default function reducer (state ={}, action) {
         case GRAB_ALL_PLANS: 
             // return {...state, topPlanList:action.list}
             const list= action.list.map((each) => ({[each.id]: each}));
+            console.log(list)
             return merge({},state,...list)
         
         case GRAB_ONE_PLAN:

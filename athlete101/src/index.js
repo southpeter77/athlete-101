@@ -7,7 +7,7 @@ import configureStore from "./store/configureStore"
 
 const initialState = {
   user:{},
-  plan:{viewPlan:{exercises:[]}},
+  plan:{},
   profile:{},
   category:[],
   exerciseFormDetail:{},
