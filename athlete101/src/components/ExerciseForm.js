@@ -79,9 +79,9 @@ return (
 
 
 
-{/* {viewPlan.exercises ? 
+{viewPlan.exercises ? 
 <>
-<button onClick={()=>console.log(viewPlan.exercises)}>aaaaaaaaa</button> 
+<button onClick={()=>console.log(viewPlan)}>aaaaaaaaa</button> 
 {viewPlan.exercises.map(each => 
     <>
 
@@ -95,7 +95,7 @@ onClick={()=>{
 >Done</Button>
 
 </>
-: null}  */}
+: null} 
 
 
 
