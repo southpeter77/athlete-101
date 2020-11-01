@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import {grabTopList} from "../store/actions/plan"
 import {TOKEN_KEY} from "../store/actions/user"
 import{createOrderFunction} from "../store/actions/order"
+import {grabUserImage} from "../store/actions/image"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -56,6 +57,7 @@ const PlanBrowser = ({loadToken })=> {
   useEffect(() => {
     dispatch(grabTopList())
   // setLoaded(true);
+  dispatch(grabUserImage())
   loadToken()
 },[])
     const handleClick =() => {
@@ -92,6 +94,28 @@ const PlanBrowser = ({loadToken })=> {
           </Container>
         </div>
   {/* show the top plans right here//////////////////////*/}
+
+  <button 
+  asdf onClick={()=>  {
+    const images = Object.values(topPlanList)
+  console.log(images)
+  
+  }}>asdfasdf</button>
+
+
+<button
+onClick={
+  ()=> {
+ 
+  }
+}
+> test</button>
+
+
+
+
+
+
   <Typography component="h3" variant="h4" align="center" color="textSecondary" style={{fontWeight:"bold"}}>
              Explore work out plans
             </Typography>

@@ -91,20 +91,25 @@ if(!userInformation) {
 }
     return (
         <>     
-  <button onClick={()=>getOrder()}>sssssssssssss</button>
+  {/* <button onClick={()=>getOrder()}>sssssssssssss</button> */}
 
-  {/* <button onClick={()=>console.log(myPlans)}>sssssssssssss</button> */}
+  <button onClick={()=>console.log(userInformation.Images[0].url)}>sssssssssssss</button>
         <NavBar/>
         <CssBaseline />
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container className={classes.cardGrid} maxWidth="md" >
-          <div>picture here from user's profile information</div>
+            {userInformation.Images.length > 0 && userInformation.Images[0].url ==="defaultProfile" ? 
+            <div className="profilePictureDiv"></div> :
+             <div className="profilePictureDivUpdated"
+            //  style={{backgroundImage:`url("")`}}
+             ></div>
+             }
             <Typography component="h1" variant="h3" align="right" color="textSecondary" gutterBottom style={{textDecoration:"underline"}}>
                 Hello {userInformation.firstName.toUpperCase()}!
             </Typography>
-            <Typography component="h1" variant="subtitle1" align="center" gutterBottom>
+            <Typography component="h1" variant="subtitle" align="center" gutterBottom>
                 Do Something Today That Your Future Self Will Thank You For!<br></br>
             </Typography>
      
@@ -120,6 +125,7 @@ if(!userInformation) {
                      <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" style={{textDecoration:"underline"}}>
                      Profile
                       </Typography>
+                      <Button size="small" variant="outlined" color="primary">Update Picture</Button>
                       <Typography variant="h6" component="h2">
                      {userInformation.trainer ? "Trainer": "Trainee"}: 
                      {userInformation.firstName} {userInformation.lastName} <br></br> 

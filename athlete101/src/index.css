@@ -639,3 +639,21 @@ background-size: cover;
     box-shadow: 2px 2px 7px rgb(66, 66, 66);
     margin-left: 330%
 }
+
+.profilePictureDiv{
+    background-image: url("./images/defaultProfile.jpeg");
+    background-size: cover;
+    height: 10em;
+    width: 10em;
+    position: absolute;
+    top:10em
+}
+
+.profilePictureDivUpdated{
+    /* background-image: url("./images/defaultProfile.jpeg"); */
+    background-size: cover;
+    height: 10em;
+    width: 10em;
+    position: absolute;
+    top:10em
+}
