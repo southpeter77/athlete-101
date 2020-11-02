@@ -10,6 +10,21 @@ export const grabUserImageForPlan = (images) => {
     }
 }
 
+export const uploadeProfile = (data) => async (dispatch) => {
+
+
+    const response  = await fetch(`${apiUrl}/images/upload`,{
+        method:"put",
+        body:data
+    })
+    if (response.ok){
+        const res = await response.json()
+        console.log(res)
+    }
+}
+
+
+
 export const grabUserImage = ()=> async (dispatch) => {
 
     const response = await fetch('http://localhost:8000/api/plan/test');

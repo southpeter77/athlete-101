@@ -655,7 +655,11 @@ background-size: cover;
     height: 10em;
     width: 10em;
     position: absolute;
-    top:10em
+    top:10em;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    border: 3px solid black;
+    border-radius: 10pt;
+
 }
 
 .homePagePictureDivDefault{
@@ -701,4 +705,12 @@ background-size: cover;
     box-shadow: 5px 3px 4px rgb(66, 66, 66);
     border: 3px solid black;
     border-radius: 10pt;
+}
+
+
+.uploadingPictureDivContainer{
+    box-shadow: 10px 10px 4px rgb(66, 66, 66);
+    border: 3px solid black;
+    border-radius: 5pt;
+    width: 50%
 }

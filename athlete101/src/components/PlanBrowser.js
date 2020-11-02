@@ -98,7 +98,7 @@ const PlanBrowser = ({loadToken })=> {
         </div>
   {/* show the top plans right here//////////////////////*/}
 
-  <button 
+  {/* <button 
   asdf onClick={()=>  {
     const images = Object.values(topPlanList)
   console.log(images)
@@ -112,7 +112,7 @@ onClick={
 console.log(topPlanList)
   }
 }
-> topplanlist</button>
+> topplanlist</button> */}
 
 
 
@@ -150,7 +150,7 @@ console.log(topPlanList)
 {images[i] === "defaultProfile" ? 
 <div className="homePagePictureDiv"></div> :
         <div className="homePagePictureWithURL"
-        //  style={{backgroundImage:`url("")`}}
+         style={{backgroundImage:`url("${images[i]}")`}}
          ></div>
  }
 

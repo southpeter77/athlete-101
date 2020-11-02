@@ -16,7 +16,7 @@ import {showEditForm} from "../store/actions/profile"
 import {grabMyPlansFunction, } from "../store/actions/plan"
 import {grabAllOrders} from "../store/actions/order"
 import {deleteMyPlanFunction} from "../store/actions/plan"
-
+import UploadProfile from "./UploadProfile"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -59,7 +59,8 @@ const Profile = () => {
     const [clickedEdit , setclickedEdit] = useState(false)
     const myPlans = useSelector(state=> state.plan)
     const following = useSelector(state=> state.following )
- 
+    const [uploadClicked, setUploadClicked] = useState(false)
+
 
     const clickEditFormOn = (data) => {
    
@@ -103,7 +104,7 @@ if(!userInformation) {
             {userInformation.Images.length > 0 && userInformation.Images[0].url ==="defaultProfile" ? 
             <div className="profilePictureDiv"></div> :
              <div className="profilePictureDivUpdated"
-            //  style={{backgroundImage:`url("")`}}
+             style={{backgroundImage:`url(${userInformation.Images[0].url})`}}
              ></div>
              }
             <Typography component="h1" variant="h3" align="right" color="textSecondary" gutterBottom style={{textDecoration:"underline"}}>
@@ -125,7 +126,13 @@ if(!userInformation) {
                      <Typography gutterBottom variant="h4" component="h2" className="myProfileFont" style={{textDecoration:"underline"}}>
                      Profile
                       </Typography>
-                      <Button size="small" variant="outlined" color="primary">Update Picture</Button>
+                      <Button size="small" variant="outlined" color="primary"
+                      onClick={()=>setUploadClicked(!uploadClicked)}
+                      >Update Picture</Button>
+                      {uploadClicked ? <UploadProfile 
+                      uploadClicked={uploadClicked}
+                      setUploadClicked={setUploadClicked}
+                      ></UploadProfile> : null}
                       <Typography variant="h6" component="h2">
                      {userInformation.trainer ? "Trainer": "Trainee"}: 
                      {userInformation.firstName} {userInformation.lastName} <br></br> 
