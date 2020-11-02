@@ -17,14 +17,6 @@
     -my profile button (if logged in)
     -Show top rated work out plans
     -below the top rated, it shows user what kind of categories of workout plans.
-## search bar
-    -able to search 
-    - on Click, shows all the results
-## results from search bar
-    - shows all the related workout that user searched for
-    - put filter so it can show by rating/date (recent/older)
-    -will have a short description of the work out
-    -have search bar on the top, have login/sign up or my profile
 ## workout plan page
     -logged in or not, user will see brief version of the workout.(trainer name, date, some pictures, some description but not all of them)
     -Once the user subscribe the workout or if the user is the owner of the post, will be able to see the whole work out plan.

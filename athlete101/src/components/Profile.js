@@ -62,6 +62,11 @@ const Profile = () => {
     const [uploadClicked, setUploadClicked] = useState(false)
 
 
+  useEffect(()=> {
+    // setUploadClicked(false)
+  },[userInformation])
+
+
     const clickEditFormOn = (data) => {
    
       dispatch(showEditForm(data))
@@ -94,7 +99,7 @@ if(!userInformation) {
         <>     
   {/* <button onClick={()=>getOrder()}>sssssssssssss</button> */}
 
-  <button onClick={()=>console.log(userInformation.Images[0].url)}>sssssssssssss</button>
+  {/* <button onClick={()=>console.log(userInformation.Images[0].url)}>sssssssssssss</button> */}
         <NavBar/>
         <CssBaseline />
       <main>

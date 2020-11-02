@@ -18,7 +18,8 @@ const UploadProfile = ({uploadClicked,setUploadClicked}) => {
         data.append("userId",userId)
         data.append("file", image)
 
-        console.log(data)
+        // console.log(data)
+        setUploadClicked(false)
         dispatch(uploadeProfile(data))
     }
 
@@ -37,15 +38,16 @@ const UploadProfile = ({uploadClicked,setUploadClicked}) => {
     onChange={(e)=>setImage(e.target.files[0])}
     >
     </input>
-    <button
-    onClick={()=>console.log(image)}
-    >console.log</button>
+
+      <button
+        type="submit"
+    >Submit</button>
+
     <button
     onClick={()=>setUploadClicked(!uploadClicked)}
     >Cancel</button>
-        <button
-        type="submit"
-    >Submit</button>
+
+  
      </form>
 </div>
 

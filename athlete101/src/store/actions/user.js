@@ -84,7 +84,7 @@ export const login = ({email, password}) => async (dispatch) => {
     }catch(err) {
         const badRequest = await err.json();
 const arrayOfError =badRequest.error
-dispatch(loginErrorArray(arrayOfError))
+ await dispatch(loginErrorArray(arrayOfError))
     }
 }
 ////////////////////////////////////////////
