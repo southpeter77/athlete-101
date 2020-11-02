@@ -26,9 +26,9 @@ const deleteButton =(id) => {
       }
 
 
-const click = () => {
-  console.log(viewPlan)
-}
+// const click = () => {
+  // console.log(viewPlan)
+// }
 
   if (!viewPlan) {
     return null
@@ -39,7 +39,8 @@ const click = () => {
       <NavBar/>
       <CssBaseline/>
       <main>
- <button onClick={click}>ddddddddddddddd</button>
+ {/* <button onClick={()=>console.log(viewPlan.planOwnerId)}>ddddddddddddddd</button>
+ <button onClick={()=>console.log(currentUserId)}>ddddddddddddddd</button> */}
 
   <div className="ownersInformationDiv">
   <Typography gutterBottom variant="h5" component="h2" align="center">
@@ -66,15 +67,15 @@ const click = () => {
 <div className="planAuthor">
   <Typography variant="h6"align="center"> Author: {viewPlan.planOwnerFirstName} {viewPlan.planOwnerLastName}</Typography>
 </div>
-
+{currentUserId == viewPlan.planOwnerId ?
 <button className="orangeBox"
-
 onClick={()=> {
   window.location.replace("/myProfile")
   deleteButton(id)}}
 >
     <span id="x">X</span>
-</button>
+</button> : null}
+
 
 
  </div>

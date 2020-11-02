@@ -14,7 +14,8 @@ const initialState = {
   review:{},
   following:{
     following:[]
-  }
+  },
+  images:{images:[]}
 }
 
 const store = configureStore(initialState);

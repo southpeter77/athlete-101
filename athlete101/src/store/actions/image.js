@@ -19,7 +19,7 @@ export const grabUserImage = ()=> async (dispatch) => {
    const data = await response.json()
      const urlArray = data.map(each=>each.url)
      dispatch(grabUserImageForPlan(urlArray))
-    console.log(urlArray)
+    // console.log(urlArray)
     }  
 }
 

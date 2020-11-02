@@ -657,3 +657,48 @@ background-size: cover;
     position: absolute;
     top:10em
 }
+
+.homePagePictureDivDefault{
+    background-image: url("./images/defaultProfile.jpeg");
+    background-size: cover;
+    height: 5em;
+    width: 5em;
+    border-radius: 10pt;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    border: 3px solid black;
+    margin-left: 10%;
+    /* position: absolute; */
+}
+
+
+.homePagePictureDiv{
+    background-image: url("./images/defaultProfile.jpeg");
+    background-size: cover;
+    height: 5em;
+    width: 5em;
+    border-radius: 10pt;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    border: 3px solid black;
+    margin-left: 80%;
+    /* position: absolute; */
+}
+
+.homePagePictureWithURL{
+    /* background-image: url("./images/defaultProfile.jpeg"); */
+    background-size: cover;
+    height: 5em;
+    width: 5em;
+    border-radius: 10pt;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    border: 3px solid black;
+    margin-left: 80%;
+}
+
+
+
+
+.shadowDiv2 {
+    box-shadow: 5px 3px 4px rgb(66, 66, 66);
+    border: 3px solid black;
+    border-radius: 10pt;
+}

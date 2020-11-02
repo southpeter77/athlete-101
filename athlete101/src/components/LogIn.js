@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
     const classes = useStyles();
-    const[email, setEmail] = useState("");
-    const[password, setPassword] = useState("");
+    const[email, setEmail] = useState("demo@demo.com");
+    const[password, setPassword] = useState("demo");
     const dispatch = useDispatch()
     const token = useSelector((state) => state.user.token)
     const errors = useSelector((state)=> state.user.logInError)

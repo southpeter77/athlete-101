@@ -14,6 +14,8 @@ import {grabTopList} from "../store/actions/plan"
 import {TOKEN_KEY} from "../store/actions/user"
 import{createOrderFunction} from "../store/actions/order"
 import {grabUserImage} from "../store/actions/image"
+import merge from "lodash/merge";
+import { toPlainObject } from 'lodash';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -53,6 +55,7 @@ const PlanBrowser = ({loadToken })=> {
   // const [loaded, setLoaded] = useState(false);
   const topPlanList = useSelector((state) => state.plan)
   const token = window.localStorage.getItem(TOKEN_KEY)
+  const images = useSelector((state) => state.images.images)
 
   useEffect(() => {
     dispatch(grabTopList())
@@ -100,16 +103,16 @@ const PlanBrowser = ({loadToken })=> {
     const images = Object.values(topPlanList)
   console.log(images)
   
-  }}>asdfasdf</button>
+  }}>image</button>
 
 
 <button
 onClick={
   ()=> {
- 
+console.log(topPlanList)
   }
 }
-> test</button>
+> topplanlist</button>
 
 
 
@@ -121,27 +124,42 @@ onClick={
             </Typography>
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing ={4}>
+
   {Object.values(topPlanList).map((each, i)=>{
     return (
-      <Grid item key={i} xs={12} sm={6}>
-          <Card className={classes.card}>
+      <Grid item key={i} xs={12} sm={6} className="shadowDiv2">
+          <Card className={classes.card} >
             <CardContent className={classes.cardContent}>
         {/* <Typography gutterBottom variant="h5" component="h2">
           Top Plan {i+1} <br></br>
         </Typography> */}
+
+
+
         <Typography 
         style={{color:'gray', fontWeight:"bold"}}
         gutterBottom variant="h5" component="h2">
         Title: {each.title}
         </Typography>
+
+
         <Typography>
           Trainer: {each.User.firstName} {each.User.lastName}
         </Typography>
+
+{images[i] === "defaultProfile" ? 
+<div className="homePagePictureDiv"></div> :
+        <div className="homePagePictureWithURL"
+        //  style={{backgroundImage:`url("")`}}
+         ></div>
+ }
+
+
         <Typography>
-          {each.Category.categoryName}
+         Category: {each.Category.categoryName}
         </Typography>
         <Typography>
-          {each.description}
+         Description: {each.description}
         </Typography>
 
         <Button size="large" color="primary" 

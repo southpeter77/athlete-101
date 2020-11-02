@@ -65,7 +65,7 @@ try{
 } catch(err) {
     const badRequest = await err.json();
     const arrayOfError =badRequest.error
-    console.log(arrayOfError)
+    // console.log(arrayOfError)
     dispatch(createReviewSubmitError(arrayOfError))
 }
 }
