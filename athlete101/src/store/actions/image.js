@@ -27,7 +27,7 @@ export const uploadeProfile = (data) => async (dispatch) => {
 
 export const grabUserImage = ()=> async (dispatch) => {
 
-    const response = await fetch('http://localhost:8000/api/plan/test');
+    const response = await fetch(`${apiUrl}/plan/test`);
  
 
     if (response.ok) {
