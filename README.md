@@ -12,7 +12,6 @@
 
 ## Main Page
     -Log-in / Sign-up buttons
-    -search bar
     -(if not logged in, show some describtion of this app)
     -my profile button (if logged in)
     -Show top rated work out plans
