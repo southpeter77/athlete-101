@@ -34,7 +34,7 @@ const Login = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         const paylaod = {email, password};
-        dispatch(login(paylaod))
+        await dispatch(login(paylaod))
     }
     if(token) {
         return null
