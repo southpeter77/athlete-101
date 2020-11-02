@@ -11,16 +11,16 @@ const UploadProfile = ({uploadClicked,setUploadClicked}) => {
     const dispatch = useDispatch()
     
     
-    const handleSubmit =(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const data = new FormData();
         data.append("userId",userId)
         data.append("file", image)
-
+    await dispatch(uploadeProfile(data))
         // console.log(data)
         setUploadClicked(false)
-        dispatch(uploadeProfile(data))
+        
     }
 
 

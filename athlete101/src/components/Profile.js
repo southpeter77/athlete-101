@@ -62,9 +62,9 @@ const Profile = () => {
     const [uploadClicked, setUploadClicked] = useState(false)
 
 
-  useEffect(()=> {
-    // setUploadClicked(false)
-  },[userInformation])
+  // useEffect(()=> {
+  //   // setUploadClicked(false)
+  // },[userInformation])
 
 
     const clickEditFormOn = (data) => {
@@ -72,10 +72,10 @@ const Profile = () => {
       dispatch(showEditForm(data))
     }
 
-    const getOrder =() => {
-      const data = Object.values(following)[0].map(each => each.title)
-      console.log(data)
-    }
+    // const getOrder =() => {
+    //   const data = Object.values(following)[0].map(each => each.title)
+    //   console.log(data)
+    // }
 
 
     const deleteButton =(id) => {  
@@ -90,7 +90,7 @@ const Profile = () => {
     dispatch(loadCurrentUser())
     dispatch(grabMyPlansFunction(myId))
     setclickedEdit(!clickedEdit)
-    },[])
+    },[uploadClicked])
 
 if(!userInformation) {
     return null
