@@ -1,5 +1,6 @@
 # ATHLETE-101
 ### Overview
+-For workout plan making
 -Users can create account
 
 -Users can publish mutiple workout plans
