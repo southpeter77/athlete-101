@@ -178,7 +178,7 @@ state={
     exerciseFormDetail,
     review,
     following,
-    images
+    images  
 }
 
 
