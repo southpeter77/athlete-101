@@ -664,6 +664,30 @@ background-size: cover;
     border-radius: 10pt;
 
 }
+.planPagePictureDivDefault{
+    background-image: url("./images/defaultProfile.jpeg");
+    background-size: cover;
+    height: 5em;
+    width: 5em;
+    border-radius: 10pt;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    border: 3px solid black;
+    margin-left: 10%;
+    margin-bottom:2%;
+
+    /* position: absolute; */
+}
+.planPagePictureWithURL{
+    /* background-image: url("./images/defaultProfile.jpeg"); */
+    background-size: cover;
+    height: 5em;
+    width: 5em;
+    border-radius: 10pt;
+    box-shadow: 2px 2px 7px rgb(66, 66, 66);
+    border: 3px solid black;
+    margin-left: 10%;
+    margin-bottom:2%;
+}
 
 .homePagePictureDivDefault{
     background-image: url("./images/defaultProfile.jpeg");

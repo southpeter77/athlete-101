@@ -39,15 +39,21 @@ const deleteButton =(id) => {
       <NavBar/>
       <CssBaseline/>
       <main>
- {/* <button onClick={()=>console.log(viewPlan.planOwnerId)}>ddddddddddddddd</button>
- <button onClick={()=>console.log(currentUserId)}>ddddddddddddddd</button> */}
+{/* <button onClick={()=>console.log(viewPlan)}>ddddddddddddddd</button> */}
+
 
   <div className="ownersInformationDiv">
   <Typography gutterBottom variant="h5" component="h2" align="center">
              {viewPlan.planOwnerFirstName.toUpperCase()}   {viewPlan.planOwnerLastName.toUpperCase()}'s   {viewPlan.planTitle.toUpperCase()}
                </Typography>
 
-  <div>profile picture on the right!!!!!!!!!!!!</div>
+  {/* <div>profile picture on the right!!!!!!!!!!!!</div> */}
+  {viewPlan.planOwnerImage === "defaultProfile" ? 
+<div className="planPagePictureDivDefault"></div> :
+        <div className="planPagePictureWithURL"
+         style={{backgroundImage:`url("${viewPlan.planOwnerImage}")`}}
+         ></div>
+ }
   <Typography gutterBottom variant="subtitle2"align="left" >First Name: {viewPlan.planOwnerFirstName}</Typography>
   <Typography gutterBottom variant="subtitle2"align="left">Last Name: {viewPlan.planOwnerLastName}</Typography>
   <Typography variant="subtitle2"align="left">About {viewPlan.planOwnerFirstName.toUpperCase()}: {viewPlan.planOwnerAboutMe}</Typography>

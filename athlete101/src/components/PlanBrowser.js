@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
+    
   },
   card: {
     height: '100%',
@@ -122,12 +123,12 @@ console.log(topPlanList)
   <Typography component="h3" variant="h4" align="center" color="textSecondary" style={{fontWeight:"bold"}}>
              Explore work out plans
             </Typography>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Grid container spacing ={4}>
+      <Container className={classes.cardGrid} maxWidth="lg">
+        <Grid container spacing ={1} style={{display:"flex", justifyContent:'center'}}>
 
   {Object.values(topPlanList).map((each, i)=>{
     return (
-      <Grid item key={i} xs={12} sm={6} className="shadowDiv2">
+      <Grid item key={i} xs={12} sm={5} className="shadowDiv2" style={{margin:'10pt'}}>
           <Card className={classes.card} >
             <CardContent className={classes.cardContent}>
         {/* <Typography gutterBottom variant="h5" component="h2">

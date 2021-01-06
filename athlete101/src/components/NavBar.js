@@ -46,7 +46,7 @@ if (!loaded) {
         ATHLETE <FitnessCenterIcon></FitnessCenterIcon> 101
         </Typography>    
        <IconButton onClick={()=> window.location.replace("/")}>
-         <HomeIcon style={{ fontSize: 40 }} style={{color:"white"}}></HomeIcon>
+         <HomeIcon fontSize="large" style={{color:"white"}}></HomeIcon>
          </IconButton> 
         {!token ?
         (<>
