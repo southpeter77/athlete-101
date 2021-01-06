@@ -45,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 *Easy sign up page.
-![signup](readMeImages/signUp.png)
+![signup](readMeImages/signup.png)
 *Login options with demo login
 ![login](readMeImages/login.png)
 *Renders all the workout plans.
