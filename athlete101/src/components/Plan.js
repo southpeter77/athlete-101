@@ -76,7 +76,7 @@ const deleteButton =(id) => {
 {currentUserId == viewPlan.planOwnerId ?
 <button className="orangeBox"
 onClick={()=> {
-  window.location.replace("/myProfile")
+  window.location.href="/myProfile"
   deleteButton(id)}}
 >
     <span id="x">X</span>

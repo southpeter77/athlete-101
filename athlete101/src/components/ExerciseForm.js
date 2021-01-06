@@ -134,7 +134,7 @@ return (
     <Button size="large"
     onClick={()=>{
     window.localStorage.removeItem("CurrentPlanId")
-    window.location.replace("/myProfile")
+    window.location.href="/myProfile"
 }}
 >Confirm</Button>
 </div>

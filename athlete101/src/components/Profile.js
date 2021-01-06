@@ -81,7 +81,7 @@ const Profile = () => {
     const deleteButton =(id) => {  
      dispatch(deleteMyPlanFunction(id))
     // dispatch(grabMyPlansFunction(myId))
-    window.location.replace('/myProfile')
+    window.location.href='/myProfile'
 
     }
 
@@ -157,7 +157,7 @@ if(!userInformation) {
                 </Grid>
               {editFormVisibility ?<EditProfileAboutMe/> : null}  
                 <Typography gutterBottom variant="h4" component="h3" className="myProfileFont" style={{textDecoration:"underline"}}>
-                      My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/myprofile/createPlan")}>Create New</Button>
+                      My Workout Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.href="/myprofile/createPlan"}>Create New</Button>
                       </Typography>
     {Object.values(myPlans).map((each, i)=>
       
@@ -172,7 +172,7 @@ if(!userInformation) {
                       </Typography>
                     </CardContent>
                   <CardActions>
-                      <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
+                      <Button size="small" color="primary" onClick={()=> window.location.href=`/plan/${each.id}`} >
                        View
                       </Button>
                       <Button size="small" style={{color:"red"}} onClick={()=> deleteButton(each.id)} >
@@ -187,7 +187,7 @@ if(!userInformation) {
   {/* ///////////////////////////////////////////////////////////////////////////////////// */}
   {/* ///////////////////////////////////////////////////////////////////////////////////// */}
                 <Typography gutterBottom variant="h4" component="h2" className="myProfileFont"style={{textDecoration:"underline"}} >
-                      Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.replace("/")}>Explore</Button>
+                      Following Plans <Button size="small" variant="outlined" color="primary" onClick={()=>window.location.href="/"}>Explore</Button>
                       </Typography>
 
 
@@ -203,7 +203,7 @@ if(!userInformation) {
                       </Typography>
                     </CardContent>
                   <CardActions>
-                      <Button size="small" color="primary" onClick={()=> window.location.replace(`/plan/${each.id}`)} >
+                      <Button size="small" color="primary" onClick={()=> window.location.href=`/plan/${each.id}`} >
                        View
                       </Button>
                  </CardActions>

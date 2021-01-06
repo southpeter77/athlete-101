@@ -164,7 +164,7 @@ console.log(topPlanList)
         </Typography>
 
         <Button size="large" color="primary" 
-        onClick={()=> window.location.replace(`/plan/${each.id}`)} 
+        onClick={()=> window.location.href=`/plan/${each.id}`} 
         >
                        View
                       </Button>

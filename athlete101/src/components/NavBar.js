@@ -45,7 +45,7 @@ if (!loaded) {
         <Typography  variant="h4" color="inherit" noWrap>
         ATHLETE <FitnessCenterIcon></FitnessCenterIcon> 101
         </Typography>    
-       <IconButton onClick={()=> window.location.replace("/")}>
+       <IconButton onClick={()=> window.location.href="/"}>
          <HomeIcon fontSize="large" style={{color:"white"}}></HomeIcon>
          </IconButton> 
         {!token ?
