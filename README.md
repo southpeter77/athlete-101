@@ -136,7 +136,6 @@ One User can have an amazing workout plan that should be shared with others. Usi
 --------------------------
 |Path|HTTP Verb|Meaning|
 |-|-|-|
-|/|GET|Show all the workout plans|
 |/|GET|Login|
 |/signup|GET|Sign up page|
 |/plan/:id|GET|Show all the exercise belong to this plan|
