@@ -6,7 +6,7 @@
 <br />
 <p align="center">
     <a href="https://master.d1lhvu2lrkgkyh.amplifyapp.com/">
-    <img src="readMeImages/athlete101Logo.png" alt="Logo" width="200" height="auto">
+    <img src="readMeImages/athlete101Logo.png" alt="Logo" width="300" height="auto">
   </a>
 <a href="https://master.d1lhvu2lrkgkyh.amplifyapp.com/">
   <h3 align="center">ATHLETE 101</h3>
