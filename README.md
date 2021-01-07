@@ -1,14 +1,15 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
+[Live Site](https://master.d1lhvu2lrkgkyh.amplifyapp.com/)
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <img src="readMeImages/athlete101Logo.png" alt="Logo" width="120" height="auto">
+    <a href="https://master.d1lhvu2lrkgkyh.amplifyapp.com/">
+    <img src="readMeImages/athlete101Logo.png" alt="Logo" width="200" height="auto">
   </a>
-
+<a href="https://master.d1lhvu2lrkgkyh.amplifyapp.com/">
   <h3 align="center">ATHLETE 101</h3>
-
+ </a>
 
 </p>
 
